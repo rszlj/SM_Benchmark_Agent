@@ -1,97 +1,125 @@
-# 使用示例：直接对 agent 说什么
+# Usage examples: what to ask your agent
 
-在支持本地文件读写和命令执行的 coding-agent 环境中打开完整仓库。
-下面的文字可以直接发送给 agent；由它准备配置、请求文件和执行计划，
-不要求用户手写 Python、JSON 或 TOML。Kimi 的入口见 [Kimi 使用说明](kimi-code.md)。
+English | [简体中文](usage-examples.zh-CN.md)
 
-## 1. 第一次使用，只检查环境
+Open the complete repository in a coding-agent environment that can read and
+write local files and run commands. Copy these prompts into your agent; it
+prepares configuration, request files and execution plans. You do not need to
+write Python, JSON or TOML. See [Kimi instructions](kimi-code.md) for its entry point.
 
-> 请阅读 AGENTS.md 和 skills/extend-soil-moisture-benchmark/SKILL.md。
-> 帮我开始使用：先检查本地环境和仓库支持的数据源，需要配置时逐步引导我。
-> 暂时不要下载数据，也不要读取或显示任何 token、私钥或登录凭证文件的内容。
+## 1. First use: check the environment only
 
-预期：agent 解释环境情况，按需要准备独立环境，询问尚未明确的位置、日期和数据源。
-离线规划不需要 GEE 登录；只有后续需要在线获取时，才引导官方登录与项目配置。
-用户自己完成账号登录和服务条款确认。
+> Read AGENTS.md and skills/extend-soil-moisture-benchmark/SKILL.md.
+> Help me get started: check my local environment and the supported data sources,
+> and guide me through configuration one step at a time. Do not download data
+> yet, or read or display tokens, private keys or login credential file contents.
 
-## 2. 先看一个月的计划，不执行下载
+Expected: the agent explains the environment, prepares an isolated environment
+if needed, and asks for missing location, dates and source choices. Offline
+planning does not require GEE login. Official login and project setup are needed
+only when subsequent work requires online retrieval. You complete account login
+and accept provider terms yourself.
 
-> 我想获取 anchor EASE2_M09km_R0403_C0871 在 2015-04-01 至 2015-04-30 的
-> ERA5-Land 和 IMERG 数据，不需要站点观测。请先检查 V1 目录和本地缓存，
-> 说明缺少什么、会包含哪些上下文数据，并给出准备计划；暂不在线获取。
+## 2. Plan one month without downloading
 
-预期：日期按 UTC 起止日、包含结束日理解。日期范围准备使用统一入口，
-不先下载全年再裁剪。需要同一网格、同一年度的 SRTM、HWSD2、MCD12Q1 上下文；
-如果缺少上下文，agent 应说明准备步骤和额外下载范围，不能假定全局 HWSD2 缓存存在。
-V1 目录中有条目不等于本机已有数据，当前外部 V1 下载地址尚未配置。
+> I need ERA5-Land and IMERG for anchor EASE2_M09km_R0403_C0871 from
+> 2015-04-01 through 2015-04-30, without station observations. Check the V1
+> catalogue and local cache first. Explain what is missing, which context data
+> will be included, and the preparation plan. Do not retrieve data online yet.
 
-## 3. 实际下载一个有 Sentinel-1 影像的月份
+Expected: dates are inclusive UTC calendar dates. Date-range preparation uses
+the unified entry point, without downloading a full year first and cropping it.
+SRTM, HWSD2 and MCD12Q1 contexts must match the anchor and requested year.
+If contexts are missing, the agent explains preparation steps and additional
+download scope; it must not assume a global HWSD2 cache exists. A V1 catalogue
+entry does not mean its data are available locally. The external V1 download
+endpoint is not yet configured.
 
-> 请为 anchor EASE2_M09km_R0169_C1995 获取 2015-04-01 至 2015-04-30 的
-> Sentinel-1 数据，不需要站点目标。先复用有效的本地上下文与缓存；
-> 说明准备范围后，完成这个月的获取、校验和打包。需要 GEE 配置时引导我，
-> 输出放到 outputs/my-sentinel1-april，不上传或发布。
+## 3. Download a month with Sentinel-1 acquisitions
 
-这个网格约位于 6.302°E、52.149°N。
-[在线验收](sentinel1-online-validation.json)中取得了 11 次观测，
-输出为原有 50 米 profile 的 VV、VH 和入射角 NetCDF。这个结果证明的是特定位置、
-特定月份的测试；实际运行仍要检查 provider 覆盖、掩膜和文件内容。
-示例不会附带测试 ZIP 或开发者机器上的上下文文件。
+> Retrieve Sentinel-1 for anchor EASE2_M09km_R0169_C1995 from 2015-04-01
+> through 2015-04-30, without station targets. Reuse valid local contexts and
+> caches first. Explain the preparation scope, then retrieve, validate and
+> package this month. Guide me through GEE setup if needed. Write the output
+> to outputs/my-sentinel1-april. Do not upload or publish it.
 
-## 4. 多源放入同一个月度包
+This anchor is near 6.302°E, 52.149°N. The [online acceptance run](sentinel1-online-validation.json)
+retrieved 11 acquisitions and produced VV, VH and incidence-angle NetCDF data
+using the existing 50 m profile. This evidence applies to that location and month;
+each run still needs checks of provider coverage, masks and file contents.
+The repository does not include the test ZIP or the developer's context files.
 
-> 请为 anchor EASE2_M09km_R0403_C0871 准备 2015-04-01 至 2015-04-30 的
-> ERA5-Land、GLDAS、IMERG、Terra/Aqua NDVI、Terra/Aqua LST 和 SMAP L4。
-> 不要站点目标。请使用仓库已有 profile，说明所需上下文，准备并校验后汇入
-> 一个包，输出到 outputs/my-multisource-april。缺失内容要明确记录，不插值补齐。
+## 4. Combine multiple sources in one monthly package
 
-预期：agent 读取所选源的独立 skill，通过 `sm-benchmark-prepare` 协调现有工具。
-Terra/Aqua 保持分开，LST 保持昼夜分开。SMAP 使用历史 v007 采样方式，
-其与原生 NAS/EASE 单元的等价性尚未验证，agent 应明确说明。
-这组位置和日期的[既有验收](period-online-validation.json)中 Aqua LST 为部分可用。
+> Prepare ERA5-Land, GLDAS, IMERG, Terra/Aqua NDVI, Terra/Aqua LST, Sentinel-1
+> and SMAP L4 for anchor EASE2_M09km_R0169_C1995 from 2015-04-01 through 2015-04-30.
+> Do not include station targets. Use the repository's existing profiles,
+> explain the required contexts, and prepare and validate the sources before
+> combining them into one package at outputs/my-multisource-april.
+> Record missing data explicitly; do not fill gaps by interpolation.
 
-MODIS 按合成**起始日期**筛选；保留 8 天或 16 天合成值原本的时间含义，
-合成周期可能超过请求的最后一天。不能将它们描述成日值，也不会为无合成起始日期的
-短时段生成虚假观测。
+Expected: the agent reads the selected source skills and coordinates existing
+tools through `sm-benchmark-prepare`. Terra and Aqua remain separate, as do
+daytime and nighttime LST. SMAP uses the historical v007 sampling method;
+equivalence to native NAS/EASE cells has not been verified and must be stated.
+All nine dynamic sources were available in the [integrated acceptance run](full-month-online-validation.json)
+for these dates and this anchor, including 11 Sentinel-1 acquisitions. That run
+reused previously live-downloaded Sentinel-1 and V1 contexts; these files are not
+bundled with the repository. IMERG and SMAP ancillary nulls remain explicit.
 
-## 5. 断线后继续
+MODIS is selected by composite **start date**. Original 8-day or 16-day composite
+support is preserved and may extend beyond the last requested day. These are
+not daily values; short intervals without a composite start date do not receive
+fabricated observations.
 
-> 继续上次 outputs/my-multisource-april 的任务，保持原来的位置、日期、数据源
-> 和 profile。检查已有结果与断点，复用校验通过的部分，只处理剩余工作。
-> 如果代码、上下文或计划范围变化，请说明原因，不要覆盖已交付的包。
+## 5. Resume after an interruption
 
-预期：从原请求和缓存恢复；损坏、过期或不匹配的缓存不能直接复用。
-鉴权和服务端错误不能被悄悄标记成“该数据源不可用”。
-已完成的包只在完整性与任务范围一致时复用；改变来源或发布版本应使用新的输出目录。
+> Resume the previous task at outputs/my-multisource-april, keeping the same
+> location, dates, sources and profiles. Inspect existing results and checkpoints,
+> reuse validated work, and process only the remaining work. If the code,
+> contexts or plan scope have changed, explain why and do not overwrite
+> previously delivered packages.
 
-## 6. 单日与跨年请求
+Expected: recovery uses the original request and cache. Corrupt, stale or
+mismatched cache entries cannot be reused directly. Authentication and server
+errors must not be silently reported as source unavailability. Completed
+packages are reused only when integrity and task scope match. Changes to
+provenance or release version should use a new output directory.
 
-> 请先规划该位置 2016-02-29 当天的 ERA5-Land 数据，不下载。
+## 6. Single-day and cross-year requests
 
-单日请求的开始、结束日期相同；完整覆盖时应有 24 个小时记录。
+> Plan ERA5-Land for this location on 2016-02-29 only. Do not download data.
 
-> 请规划该位置 2015-12-20 至 2016-01-10 的 ERA5-Land 数据，不下载。
-> 保留我指定的日期范围，不扩大到两个完整年份。
+For a single day, start and end dates are identical. Complete coverage should
+contain 24 hourly records. These follow-up prompts assume a location has already
+been specified; otherwise, provide coordinates or an anchor ID.
 
-跨年由 agent 拆为 2015-12-20 至 2015-12-31、2016-01-01 至 2016-01-10 两段，
-分别匹配对应年份的上下文并规划。当前单次命令仍限定一个网格、一个年份内的时段；
-这不代表已经实现自动大范围批量调度。
+> Plan ERA5-Land for this location from 2015-12-20 through 2016-01-10, without
+> downloading. Keep my requested date range; do not expand it to two full years.
 
-## 如何查看结果
+The agent splits this into 2015-12-20 through 2015-12-31 and 2016-01-01 through
+2016-01-10, matching contexts for each year and planning each interval separately.
+A single command currently handles one anchor and an interval within one year.
+This does not imply automatic large-scale batch scheduling is implemented.
 
-以第三个示例为例，成功后应返回：
+## Inspecting the results
+
+For example 3, a successful run should return:
 
 ```text
 outputs/my-sentinel1-april/
   packages/EASE2_M09km_R0169_C1995/2015-04-01_2015-04-30.zip
 ```
 
-包内 `package_manifest.json` 记录范围、文件校验值和数据源可用状态；
-`metadata/source_manifests/` 记录各源参数、实际覆盖和缺失信息；
-`metadata/multi_extension.json` 记录协调流程的来源与验证结果。
-部分内部文件名仍含年份，以兼容原有布局；实际覆盖应看日期、波段标签和元数据，
-不能从文件名推断有全年数据。
+Inside the package, `package_manifest.json` records scope, file checksums and
+source availability. `metadata/source_manifests/` records source parameters,
+actual coverage and gaps; `metadata/multi_extension.json` records workflow
+provenance and validation results. Some internal filenames retain the year for
+layout compatibility. Check dates, band labels and metadata for actual coverage;
+a year in a filename does not imply full-year data.
 
-本站点目标模式为“缺省不提供”，当前不接入 ISMN 或用户私有站点文件。
-月度 ZIP、缓存和私人配置不会随 GitHub 仓库交付。需要更精确的命令参数，见
-[统一准备流程](multi-source-preparation.md)和[配置说明](setup.md)。
+Station targets are absent by design in these extensions. ISMN and private
+station-file ingestion are not currently integrated. Monthly ZIPs, caches and
+private configuration are not distributed through GitHub. For precise command
+options, see [unified preparation](multi-source-preparation.md) and
+[setup instructions](setup.md).

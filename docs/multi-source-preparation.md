@@ -103,14 +103,27 @@ rejects a cross-year request. Do not treat this as an automatic batch scheduler.
 
 ## One-month live acceptance (2026-11-08)
 
-[Online evidence](period-online-validation.json) records 2015-04-01 through
-2015-04-30 at EASE2_M09km_R0403_C0871. Seven dynamic sources were available;
-Aqua LST was partial due to masked pixels. Sentinel-1 discovery returned no
-matching acquisitions, so live Sentinel-1 raster retrieval remains unverified.
-The archive passed relocation checks and network-blocked reuse with zero provider
-calls. Contexts were reused from previously validated prepared assets. SMAP's
-native-cell equivalence limitation is unchanged. This does not establish general
-new-location, clean-environment or cross-model acceptance.
+[Integrated online evidence](full-month-online-validation.json) records one
+package for 2015-04-01 through 2015-04-30 at `EASE2_M09km_R0169_C1995`.
+All nine dynamic sources are available: ERA5-Land (720 hourly rows), GLDAS
+(240 three-hourly rows), IMERG (1,440 half-hourly rows), SMAP (240 three-hourly
+rows), separate Terra/Aqua NDVI and day/night LST, and 11 Sentinel-1 acquisitions.
+Eight dynamic sources were retrieved online for this acceptance; Sentinel-1
+reused the preceding live download at this same anchor and month. All three
+context sources were reused from reviewed V1 assets.
+
+Source validators passed. The relocated ZIP passed integrity checks; its tables,
+rasters and NetCDF were decoded and checked for the requested dates. With socket
+access blocked, all nine source caches were prepared and validated again, and
+the complete archive was reused with zero planned provider operations. IMERG
+microwave ancillary values and some SMAP ancillary fields contain nulls, retained
+explicitly without interpolation. SMAP's native-cell equivalence remains unverified.
+This does not establish fresh-environment installation, live context acquisition,
+general new-location coverage or cross-model acceptance.
+
+The [earlier month at another anchor](period-online-validation.json) and the
+[preceding Sentinel-1 run](sentinel1-online-validation.json) remain historical
+evidence; the integrated case above is the primary monthly acceptance example.
 
 ## Sentinel-1 live acquisition acceptance (2026-11-08)
 

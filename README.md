@@ -46,7 +46,8 @@ status](docs/kimi-code.md). No Kimi model session has yet been validated.
 
 ### Example requests
 
-See [copy-and-paste usage examples](docs/usage-examples.md) for first-time setup,
+See copy-and-paste usage examples in [English](docs/usage-examples.md) or
+[简体中文](docs/usage-examples.zh-CN.md) for first-time setup,
 offline planning, a Sentinel-1 month, multi-source delivery, resuming interrupted
 work, and single-day/cross-year requests. The agent creates the configuration and
 request files; users describe the task in ordinary language.
@@ -89,12 +90,12 @@ See [usage examples](docs/usage-examples.md),
 ### Verified
 
 - Offline source tests and V1 replay checks, plus a live GLDAS cell/year test.
-- A live multi-source run for April 2015: seven dynamic sources available,
-  Aqua LST partial due to masked pixels, and no matching Sentinel-1 acquisitions
-  at that location. Contexts were reused. See [monthly evidence](docs/period-online-validation.json).
-- A separate Sentinel-1 April 2015 run at a location with 11 acquisitions:
-  actual downloads, 50 m processing, NetCDF delivery, relocated archive checks
-  and network-blocked reuse passed. See [Sentinel-1 evidence](docs/sentinel1-online-validation.json).
+- One integrated April 2015 package at `EASE2_M09km_R0169_C1995`: all nine
+  dynamic sources available, including 11 Sentinel-1 acquisitions. Eight sources
+  were retrieved online; previously live-downloaded Sentinel-1 and V1 contexts
+  were reused. Source validation, relocated archive checks and network-blocked
+  source/cache reuse passed. Ancillary nulls remain explicit. See
+  [monthly acceptance evidence](docs/full-month-online-validation.json).
 
 These results validate the recorded cases, not every location, platform or agent
 model. Historical validation files retain their original code versions and scope.
