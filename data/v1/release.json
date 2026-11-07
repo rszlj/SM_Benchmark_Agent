@@ -1,0 +1,17 @@
+{
+  "schema": "benchmark-global-catalog-v1",
+  "release_id": "benchmark-initial-2000-2025-v1",
+  "anchor_year_count": 19982,
+  "anchor_count": 1679,
+  "year_min": 2000,
+  "year_max": 2025,
+  "build_status_counts": {
+    "complete": 19982
+  },
+  "catalog_csv_gz": "catalog.csv.gz",
+  "updated_utc": "2026-11-07T08:54:17.423103+00:00",
+  "station_inventory_anchor_count": 1822,
+  "package_anchor_count": 1679,
+  "download_base_url": null,
+  "data_access_status": "hosting_not_configured"
+}

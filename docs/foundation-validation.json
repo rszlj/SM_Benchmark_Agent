@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-07",
+  "phase": "independent repository foundation; not complete extension acceptance",
+  "unit_tests": 18,
+  "failures": 0,
+  "installed_wheel_imports": "passed; all application modules from installed package",
+  "dependency_environment": "Existing PyProj installation; no fresh dependency-download test",
+  "network": "blocked during real-package reuse",
+  "real_package_reuse": {
+    "request_id": "212fda38e116c4af304077311fad7c5d52990263048d18a8263b4113b4fa8030",
+    "status": "complete",
+    "packages": [
+      {
+        "anchor_id": "EASE2_M09km_R0304_C2105",
+        "year": 2001,
+        "status": "verified",
+        "archive_path": "packages/EASE2_M09km_R0304_C2105/2001.zip",
+        "sha256": "321186f5b20004d5f0165557f8943551368046a88f825c929d7c63e78fa08e2c"
+      }
+    ]
+  },
+  "real_package_resume": {
+    "request_id": "212fda38e116c4af304077311fad7c5d52990263048d18a8263b4113b4fa8030",
+    "status": "complete",
+    "packages": [
+      {
+        "anchor_id": "EASE2_M09km_R0304_C2105",
+        "year": 2001,
+        "status": "reused",
+        "archive_path": "packages/EASE2_M09km_R0304_C2105/2001.zip",
+        "sha256": "321186f5b20004d5f0165557f8943551368046a88f825c929d7c63e78fa08e2c"
+      }
+    ]
+  },
+  "remote_adapter_acceptance": "not_run",
+  "cross_model_trials": "not_run"
+}

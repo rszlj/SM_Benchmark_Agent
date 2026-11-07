@@ -1,0 +1,13 @@
+name: sm-benchmark-agent
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - gdal=3.10.3
+  - rasterio=1.4.4
+  - numpy=2.4.6
+  - pyproj>=3.6,<4
+  - pyarrow>=15
+  - pip
+  - pip:
+      - -e .[contexts,gldas,modis,timeseries,sentinel1,smap]

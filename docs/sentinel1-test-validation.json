@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-08",
+  "source_suite": {
+    "tests": 64,
+    "result": "passed",
+    "seconds": 51.074
+  },
+  "independently_installed_wheel_suite": {
+    "tests": 64,
+    "result": "passed",
+    "seconds": 50.777
+  },
+  "wheel_sha256": "9714584f911431073b51d9bef6af9feeb4739ef77abef49c7b158d60866a5e0e",
+  "legacy_namespace_imported": false,
+  "skill_validation": "passed",
+  "installed_cli_offline_preview": "passed; no network, cache or output creation",
+  "prepared_acquisition_replay": "sentinel1-replay-validation.json",
+  "live_gee_tested": false,
+  "raw_sar_aggregation_replayed": false,
+  "complete_provider_discovery_tested": false,
+  "fresh_environment_tested": false,
+  "environment_note": "Existing Python 3.11 geospatial environment; GDAL_DATA unset warning did not fail tests",
+  "scope": "Sentinel-1 physical-overpass grouping, VV-only output, grid and NetCDF validation, discovery/acquisition checkpoints, restart, corruption rejection, bounded mocked provider requests and annual delivery"
+}

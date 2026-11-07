@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-07",
+  "source_suite": {
+    "tests": 50,
+    "result": "passed"
+  },
+  "independently_installed_wheel_suite": {
+    "tests": 50,
+    "result": "passed"
+  },
+  "wheel_sha256": "a0b8d6b543f53dfc0ecc20043a0f069c877ac2ea27a9fa924f5cfb39bb9ba88f",
+  "legacy_namespace_imported": false,
+  "skill_validation": "passed",
+  "raw_replay": "modis-replay-validation.json",
+  "live_modis_acquisition_tested": false,
+  "fresh_environment_tested": false,
+  "environment_note": "Existing Python 3.11 geospatial environment; GDAL_DATA unset emitted gdalvrt.xsd warning without test failure",
+  "scope": "Four separate MODIS adapters, annual workflow, scientific kernels, checkpoint recovery, corruption rejection, empty/masked cases, V1 replay and relocated delivery"
+}

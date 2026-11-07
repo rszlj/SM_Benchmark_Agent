@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-08",
+  "sources": [
+    {
+      "path": "src/soil_moisture_benchmark/sources/gee_sentinel1.py",
+      "sha256": "33a41978747e78dd5021b71d76dfadf028b9e2cc86c5d2eaad6b153d8b27b281"
+    },
+    {
+      "path": "src/soil_moisture_benchmark/sentinel1_workflow.py",
+      "sha256": "a6077a34fc0a5d0f69812dd8506ede9fe065f98f5be9297a6b706aedaced7f61"
+    },
+    {
+      "path": "scripts/package_benchmark_release.py",
+      "sha256": "13a9f2e8a6f7859a49257281e10ec2d32fd976fb5e9f8f067628aef83ea746c8"
+    },
+    {
+      "path": "scripts/download_sentinel1_ascending_queue.py",
+      "sha256": "cc8018dfe9c7759f06118dc7057574c74cb74a286f27c2ac50a7d8fd06b73980"
+    }
+  ],
+  "destinations": {
+    "sentinel1_sources.py": "a30546bc7a724c8293283f991c588b1e4278ea266386aba03f0943b6caccac22",
+    "sentinel1_workflow.py": "2eee45a8bb10316cbf4383f6899fca889de79bcfdd839ded92c47e4ce6e0fa77",
+    "processing/sentinel1.py": "851f3f13caab549a1ea870e2b582fc252fe1b926422e0b3ba17c12254b0e8f30"
+  },
+  "migration": [
+    "Physical-overpass dataclasses/grouping and annual NetCDF stack kernel copied from production source",
+    "Existing direct GEE 50 m linear-power aggregation expression retained",
+    "VV-only eligibility from historical recovery route retained; VH absent unless all mosaic slices support it",
+    "Bounded discovery and immutable acquisition checkpoints replace production queues and script imports",
+    "Every raster validated before legacy annual builder; exclusions fail rather than silently disappearing"
+  ],
+  "scope": "Offline prepared-acquisition replay, not live GEE or native SAR scientific acceptance"
+}

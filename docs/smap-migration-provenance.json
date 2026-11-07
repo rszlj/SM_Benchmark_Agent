@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-08",
+  "source_project": "Original benchmark preparation toolkit; inspection only, no runtime import",
+  "original_files": {
+    "src/soil_moisture_benchmark/sources/gee_smap_l4.py": "e5befcf2bf455d6c58e8f111eb1295d1b9d6a17ac69d47778f63146a33af877d",
+    "src/soil_moisture_benchmark/sources/smap_l4.py": "3b70babe8389042edff13720064ec38d2763796bb65c95eb7e332e7d623860be",
+    "scripts/retry_smap_l4_final_failures.py": "224cb3680ab86c7b41bbf373945349163c8fbffb37c1f9578c6fa69b3c6b390f"
+  },
+  "migrated": "45-band ordering and exact V1 calendar; legacy GEE point scale=13000 query",
+  "changes": [
+    "Monthly durable checkpoints and bounded retries",
+    "Independent adapter/workflow and private credential reference",
+    "Public metadata removes project IDs and local paths",
+    "Explicit unverified native-cell equivalence replaces unsupported native-cell claim",
+    "Partial-calendar recovery reports missing slots as null for any requested year",
+    "Availability uses core soil-moisture coverage and separately reports ancillary nulls"
+  ],
+  "not_migrated": [
+    "New NAS stack ingestion",
+    "Exact native EASE cell sampler"
+  ],
+  "processing_code_sha256": {
+    "smap_sources.py": "b8a8c826bd55f24c440667e1cd3a7c24b1e1130509c956529a86ea72060e2428",
+    "smap_profile.py": "5e8bb4ab1c2887ddcc153e8a9c0cc922bf88a5a6cc38b986163af82cb63e176d",
+    "grid.py": "4a0e338f61a438e4d550b6cdf2618b12f8f13a86340ad5a07ab3c9121c22bcb2",
+    "gldas21.py": "f13f050de65cabc5afd4f42970786bbd4d05e770a4c43aaac4d1cabc870a4faa",
+    "smap_workflow.py": "e1367e13100a3e22e8a9388ad4a8437cc447d7139dafbd3fe5aac0c4ed78417d",
+    "delivery.py": "ba199ff2b1e7edaed1631007b3c0ebf6891b47811990079d943bdb0b97d0acd4",
+    "archives.py": "9b35086e9e7150fe5e0e50772d2a65940f6639aef762981545536c65571e420c",
+    "gldas_workflow.py": "000c64bed4eabb0ee4acf1fc1f22ff5429d09a39c7d66f7c7227cf0b19fd76d1",
+    "extension_agent.py": "57de8c5fc8a96a7e7f196444099de2baa7bb62ba236259fa031bed4b145ca73d"
+  }
+}

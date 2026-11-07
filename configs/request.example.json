@@ -1,0 +1,10 @@
+{
+  "schema": "benchmark-extension-request-v1",
+  "spatial": {"points": [[147.5348, -35.32395]]},
+  "start": "2020-01-01",
+  "end": "2020-12-31",
+  "sources": ["era5_land", "gldas21"],
+  "station_targets": "optional",
+  "output_root": "outputs/example",
+  "max_packages": 10
+}

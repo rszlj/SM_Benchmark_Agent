@@ -1,0 +1,22 @@
+{
+  "spatial": {
+    "points": [
+      [
+        -86.9023,
+        32.3182
+      ]
+    ]
+  },
+  "sources": [
+    "sentinel1",
+    "era5_land",
+    "imerg_v07",
+    "smap_l4"
+  ],
+  "station_targets": "absent",
+  "credential_ref": "credentials.toml",
+  "output_root": "outputs/period-example",
+  "max_packages": 1,
+  "start": "2015-04-01",
+  "end": "2015-04-30"
+}

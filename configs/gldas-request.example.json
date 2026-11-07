@@ -1,0 +1,10 @@
+{
+  "schema": "benchmark-extension-request-v1",
+  "spatial": {"anchor_ids": ["EASE2_M09km_R0540_C0257"]},
+  "years": [2013],
+  "sources": ["gldas21", "srtm", "hwsd2", "mcd12q1"],
+  "station_targets": "absent",
+  "output_root": "outputs/gldas-pilot",
+  "credential_ref": "credentials.toml",
+  "max_packages": 1
+}

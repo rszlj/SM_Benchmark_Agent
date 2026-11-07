@@ -1,0 +1,9 @@
+{
+  "spatial": {"points": [[-86.9023, 32.3182]]},
+  "years": [2013],
+  "sources": ["era5_land", "imerg_v07"],
+  "station_targets": "absent",
+  "credential_ref": "credentials.toml",
+  "output_root": "outputs/timeseries-example",
+  "max_packages": 1
+}

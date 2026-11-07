@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-07",
+  "source_suite_before_archive_path_fix": {
+    "tests": 56,
+    "result": "passed"
+  },
+  "final_installed_wheel_suite": {
+    "tests": 57,
+    "result": "passed",
+    "seconds": 46.146
+  },
+  "wheel_sha256": "a7c359155bd9b2dd9ca6a5828bb3b5ccd3bab3e07250d9831a650f397e26dc89",
+  "legacy_namespace_imported": false,
+  "installed_cli_offline_preview": "passed; no network, cache or data output creation",
+  "source_table_replay": "timeseries-replay-validation.json",
+  "skill_validation": "passed",
+  "whitespace_check": "passed",
+  "live_retrieval_tested": false,
+  "fresh_environment_tested": false,
+  "environment_note": "Existing Python 3.11 geospatial environment; GDAL_DATA unset warning did not fail tests",
+  "regression_fixed": "Windows temporary archive path repeated packages/anchor hierarchy; moved staging to output root and added long-output-path test",
+  "scope": "ERA5 raw18 and IMERG V07 monthly checkpoints, scientific table validation, recovery, corrupt cache rejection, source statuses, gaps, annual delivery and relocated ZIP checks"
+}

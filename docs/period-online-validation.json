@@ -1,0 +1,247 @@
+{
+  "date": "2026-11-08",
+  "mode": "Live GEE one-month dynamic-source preparation, reused prevalidated contexts",
+  "anchor_id": "EASE2_M09km_R0403_C0871",
+  "requested_period": {
+    "start": "2015-04-01",
+    "end": "2015-04-30"
+  },
+  "release_id": "agent-online-month-201504-v1",
+  "archive_sha256": "6537b9a64ee990e4e14400cdf96fd284abd9eb95244b61310683536162cd607d",
+  "sources": {
+    "era5_land": {
+      "state": "available",
+      "reason": null,
+      "record_count": 720,
+      "expected_record_count": 720,
+      "missing_timestamp_count": 0,
+      "null_counts": {
+        "2m_temperature": 0,
+        "skin_temperature": 0,
+        "surface_pressure": 0,
+        "10m_u_component_of_wind": 0,
+        "10m_v_component_of_wind": 0,
+        "total_precipitation": 0,
+        "volumetric_soil_water_layer_1": 0,
+        "surface_runoff": 0,
+        "potential_evaporation": 0,
+        "total_evaporation": 0,
+        "forecast_albedo": 0,
+        "soil_temperature_level_1": 0,
+        "surface_latent_heat_flux": 0,
+        "surface_sensible_heat_flux": 0,
+        "surface_solar_radiation_downwards": 0,
+        "surface_thermal_radiation_downwards": 0,
+        "surface_net_solar_radiation": 0,
+        "surface_net_thermal_radiation": 0
+      },
+      "first_timestamp": "2015-04-01T00:00:00+00:00",
+      "last_timestamp": "2015-04-30T23:00:00+00:00"
+    },
+    "gldas21": {
+      "state": "available",
+      "reason": null,
+      "record_count": 240,
+      "expected_record_count": 240,
+      "missing_timestamp_count": 0,
+      "null_counts": {
+        "SoilMoi0_10cm_inst": 0,
+        "SoilMoi10_40cm_inst": 0,
+        "SoilMoi40_100cm_inst": 0,
+        "SoilMoi100_200cm_inst": 0
+      },
+      "first_timestamp": "2015-04-01T00:00:00+00:00",
+      "last_timestamp": "2015-04-30T21:00:00+00:00"
+    },
+    "imerg_v07": {
+      "state": "available",
+      "reason": null,
+      "record_count": 1440,
+      "expected_record_count": 1440,
+      "missing_timestamp_count": 0,
+      "null_counts": {
+        "MWobservationTime": 1005,
+        "MWprecipSource": 0,
+        "MWprecipitation": 1005,
+        "IRinfluence": 0,
+        "IRprecipitation": 0,
+        "precipitation": 0,
+        "precipitationUncal": 0,
+        "probabilityLiquidPrecipitation": 0,
+        "randomError": 0
+      },
+      "first_timestamp": "2015-04-01T00:00:00+00:00",
+      "last_timestamp": "2015-04-30T23:30:00+00:00"
+    },
+    "mod11a2_lst": {
+      "state": "available",
+      "reason": null,
+      "dates": [
+        "2015-04-07",
+        "2015-04-15",
+        "2015-04-23"
+      ],
+      "nominal_missing_dates": [],
+      "statistics": {
+        "valid_values": 1014,
+        "missing_values": 0
+      }
+    },
+    "mod13q1_ndvi": {
+      "state": "available",
+      "reason": null,
+      "dates": [
+        "2015-04-07",
+        "2015-04-23"
+      ],
+      "nominal_missing_dates": [],
+      "statistics": {
+        "valid_values": 5408,
+        "missing_values": 0
+      }
+    },
+    "myd11a2_lst": {
+      "state": "partial",
+      "reason": "missing_composites_or_masked_values",
+      "dates": [
+        "2015-04-07",
+        "2015-04-15",
+        "2015-04-23"
+      ],
+      "nominal_missing_dates": [],
+      "statistics": {
+        "valid_values": 916,
+        "missing_values": 98
+      }
+    },
+    "myd13q1_ndvi": {
+      "state": "available",
+      "reason": null,
+      "dates": [
+        "2015-04-15"
+      ],
+      "nominal_missing_dates": [],
+      "statistics": {
+        "valid_values": 2704,
+        "missing_values": 0
+      }
+    },
+    "sentinel1": {
+      "state": "unavailable",
+      "reason": "no_provider_acquisitions",
+      "acquisition_count": 0,
+      "valid_pixel_counts": {
+        "vv": 0,
+        "vh": 0,
+        "incidence_angle": 0
+      }
+    },
+    "smap_l4": {
+      "state": "available",
+      "reason": null,
+      "record_count": 240,
+      "expected_record_count": 240,
+      "missing_timestamp_count": 0,
+      "null_counts": {
+        "baseflow_flux": 0,
+        "depth_to_water_table_from_surface_in_peat": 240,
+        "free_surface_water_on_peat_flux": 240,
+        "heat_flux_ground": 0,
+        "heat_flux_latent": 0,
+        "heat_flux_sensible": 0,
+        "height_lowatmmodlay": 0,
+        "land_evapotranspiration_flux": 0,
+        "land_fraction_saturated": 0,
+        "land_fraction_snow_covered": 0,
+        "land_fraction_unsaturated": 0,
+        "land_fraction_wilting": 0,
+        "leaf_area_index": 0,
+        "mwrtm_vegopacity": 0,
+        "net_downward_longwave_flux": 0,
+        "net_downward_shortwave_flux": 0,
+        "overland_runoff_flux": 0,
+        "precipitation_total_surface_flux": 0,
+        "radiation_longwave_absorbed_flux": 0,
+        "radiation_shortwave_downward_flux": 0,
+        "sm_profile": 0,
+        "sm_profile_pctl": 0,
+        "sm_profile_wetness": 0,
+        "sm_rootzone": 0,
+        "sm_rootzone_pctl": 0,
+        "sm_rootzone_wetness": 0,
+        "sm_surface": 0,
+        "sm_surface_wetness": 0,
+        "snow_depth": 0,
+        "snow_mass": 0,
+        "snow_melt_flux": 0,
+        "soil_temp_layer1": 0,
+        "soil_temp_layer2": 0,
+        "soil_temp_layer3": 0,
+        "soil_temp_layer4": 0,
+        "soil_temp_layer5": 0,
+        "soil_temp_layer6": 0,
+        "soil_water_infiltration_flux": 0,
+        "specific_humidity_lowatmmodlay": 0,
+        "surface_pressure": 0,
+        "surface_temp": 0,
+        "temp_lowatmmodlay": 0,
+        "vegetation_greenness_fraction": 0,
+        "windspeed_lowatmmodlay": 0,
+        "snowfall_surface_flux": 0
+      },
+      "first_timestamp": "2015-04-01T01:30:00+00:00",
+      "last_timestamp": "2015-04-30T22:30:00+00:00"
+    }
+  },
+  "offline_resume": "passed; zero provider calls; archive reused",
+  "relocation": {
+    "files": 31,
+    "listed_files": 30,
+    "anchor_id": "EASE2_M09km_R0403_C0871",
+    "year": 2015
+  },
+  "public_metadata_private_field_scan": "passed",
+  "processing_code_sha256": {
+    "__init__.py": "ccf659c901342c1954c9ceeab923ced05f02265fe6c7918b2241b4ad045255d5",
+    "__main__.py": "b6509eb15fd69335df4fa3656d2fd23204695e8faf9dabc83ca684707a3738bd",
+    "adapters.py": "e06811bf832e4fbaf7cb54f19405d7e9d3e24d8ce1498fa30f8b4df8d60f3c42",
+    "archives.py": "9b35086e9e7150fe5e0e50772d2a65940f6639aef762981545536c65571e420c",
+    "catalogue.py": "923a6f3467fa934d7991adee51ff3a22eb18585131e9f3d8ceb07580ae24c49a",
+    "context_sources.py": "9581c7eb95aa4ab1dc6b1e764acb0d54cd0cf54944d2f34749840ea2af246593",
+    "context_workflow.py": "3f06e1e0675b6933f007ce8996c6954d721975d94cf12936c61a5b3f8694e0a9",
+    "delivery.py": "e67292d568dcee81eb3c062847a59ec294a98bcb0dbfde2dfb504f6d8dbbb9bd",
+    "export.py": "bad67f4f822d9b1db13316faba6dae242f4760b20aedb1cc1724e1effb7b5b88",
+    "extension_agent.py": "57de8c5fc8a96a7e7f196444099de2baa7bb62ba236259fa031bed4b145ca73d",
+    "gldas21.py": "e2166a65df5f6a2e0c5da138ade8b0f584e807dea6d78d53601ea7bc68dcc6cc",
+    "gldas_workflow.py": "e25d53c0ca9d909854c1552afb25972fefd99d678a2f8256afddd814f31a4278",
+    "grid.py": "4a0e338f61a438e4d550b6cdf2618b12f8f13a86340ad5a07ab3c9121c22bcb2",
+    "modis_sources.py": "7c2c52c5c6c933a63e550ff8270d83f3c823ead5cf4d21489c6c1eafe3353395",
+    "modis_workflow.py": "3d9f2529049b72be361f17b2e880b6678e363bfd296599cde1cabe3f1dad8f44",
+    "multi_workflow.py": "103615f4115ca922b219d7ac7b7e335991e7bae02b803b1d580c8473df5be6f2",
+    "native_cells.py": "c0f14d8fccc9ef8a7d61018ae7b450f45744dbbef4eea0d9a2043a0eb3ccfe4f",
+    "periods.py": "faa01cc461343a7bb6c36612b709766c191acc8aa2dcee04d29c5978daabc1e8",
+    "processing/__init__.py": "a7e8aa550ca36583732a9ed35e7fcfb21b1eabb7c51d37b5ebed97a73ea3b5a4",
+    "processing/aqua_ndvi.py": "85f7cb14b56599573028585d837d17fad0a7fb4b84e39abd03ff93af48245a9e",
+    "processing/hwsd2.py": "6144c32eb0232921bf96fd4a488d5b742978f0f5ede4217a17f8e8d432d627fb",
+    "processing/landcover.py": "f621fbf27726d6ab293e0d1017a04b3c733bbcb38e8e7e79ba04444621f747f1",
+    "processing/lst.py": "7abb6a82249a3079bef577fb7f0b044732416ae04a8c1320bc7508a41b60fc51",
+    "processing/ndvi.py": "fdf25c7dd73f82661df6ab1e534cf5bae0b3cece9a04f6a1953abc205f285dab",
+    "processing/sentinel1.py": "851f3f13caab549a1ea870e2b582fc252fe1b926422e0b3ba17c12254b0e8f30",
+    "processing/srtm.py": "9ead3bd7940a6d66b5a6586254dd1b9e12220fa8ac4550904cf278cddb046512",
+    "sentinel1_sources.py": "46376adefca07667d864f1823c20db77afa330c9e90a5bf8ffb658dbe3ce344c",
+    "sentinel1_workflow.py": "6f4575fe38d5782196445f17a78c2c66356046d680a15416aad5d13df044fead",
+    "smap_profile.py": "5e8bb4ab1c2887ddcc153e8a9c0cc922bf88a5a6cc38b986163af82cb63e176d",
+    "smap_sources.py": "edb1d60479e6f055eaab18370193ef2bbb7b0f6d9707f55f2fd5bfaaedb701a1",
+    "smap_workflow.py": "d7ce24f96ab430ae6e005db0f9b8e1a7d4ee999d6357a516e0fa0fbfb53969a0",
+    "timeseries_profiles.py": "dc1cd059e5d4b27f8a217ce99a7f858036727bc2260b09be74dd3e23476ae82f",
+    "timeseries_sources.py": "79e5989d902645aef7e929f710ade31c71c917b1d494a90eea99a223deb983b2",
+    "timeseries_workflow.py": "4b4138fa77e0c5c48ee9d3f476eb9f26a36ead73cd127d81881e6d3bd1da9abb"
+  },
+  "limitations": [
+    "Sentinel-1 discovery returned zero matching acquisitions; live raster fetch and NetCDF assembly NOT exercised",
+    "Aqua LST contains masked pixels",
+    "SMAP v007 legacy geographic sampling; native NAS/EASE equivalence unverified",
+    "Contexts reused, not retrieved online in this run",
+    "Single location and month; no fresh-environment or cross-model acceptance"
+  ]
+}

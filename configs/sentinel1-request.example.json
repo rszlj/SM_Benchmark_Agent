@@ -1,0 +1,9 @@
+{
+  "spatial": {"points": [[-86.9023, 32.3182]]},
+  "years": [2015],
+  "sources": ["sentinel1"],
+  "station_targets": "absent",
+  "credential_ref": "credentials.toml",
+  "output_root": "outputs/sentinel1-example",
+  "max_packages": 1
+}

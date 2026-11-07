@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-08",
+  "environment_tests_passed": 5,
+  "existing_skill_route_tests_passed": 6,
+  "registered_commands_launched_with_selected_interpreter": [
+    "sm-benchmark-prepare",
+    "sm-benchmark-smap",
+    "sm-benchmark-agent",
+    "sm-benchmark-export",
+    "sm-benchmark-context",
+    "sm-benchmark-modis",
+    "sm-benchmark-timeseries",
+    "sm-benchmark-sentinel1"
+  ],
+  "dependency_checks": {
+    "access_parser": {
+      "status": "passed",
+      "version": "unknown"
+    },
+    "ee": {
+      "status": "passed",
+      "version": "1.7.37"
+    },
+    "h5netcdf": {
+      "status": "passed",
+      "version": "1.8.1"
+    },
+    "h5py": {
+      "status": "passed",
+      "version": "3.16.0"
+    },
+    "numpy": {
+      "status": "passed",
+      "version": "2.4.6"
+    },
+    "osgeo.gdal": {
+      "status": "passed",
+      "version": "3.10.3"
+    },
+    "pandas": {
+      "status": "passed",
+      "version": "3.0.5"
+    },
+    "pyarrow": {
+      "status": "passed",
+      "version": "25.0.0"
+    },
+    "pyproj": {
+      "status": "passed",
+      "version": "3.7.2"
+    },
+    "rasterio": {
+      "status": "passed",
+      "version": "1.4.4"
+    },
+    "xarray": {
+      "status": "passed",
+      "version": "2026.7.0"
+    }
+  },
+  "python_version": [
+    3,
+    11,
+    15
+  ],
+  "warnings_emitted": true,
+  "network_requests": 0,
+  "bootstrap_sha256": "14693f8177cf1cb3bb2193e67f19330d71e43c2d80eecfd8cd47a7a8ba0c5fa1",
+  "record_policy": "Ignored .local/python-environment.json; checkout-bound, absolute interpreter, version and prefix; no global selection modified during tests",
+  "fresh_conda_solve_tested": false,
+  "limitations": [
+    "Existing scientific environment reused for diagnosis",
+    "Kimi behavioral acceptance remains pending",
+    "No guarantee of all-platform dependency solvability"
+  ]
+}

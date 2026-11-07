@@ -1,0 +1,64 @@
+{
+  "mode": "offline raw-input replay; no provider requests",
+  "anchor_id": "EASE2_M09km_R0540_C0257",
+  "year": 2013,
+  "reference_zip_sha256": "43663b9fb055167c36a97967d85971871585dc0b302ef9495e4b3284b714c68d",
+  "comparisons": [
+    {
+      "file": "static/srtm/srtm_terrain_50m_EPSG6933.tif",
+      "equal_values_and_masks": true,
+      "same_grid": true,
+      "shape": [
+        6,
+        260,
+        260
+      ]
+    },
+    {
+      "file": "static/hwsd2/hwsd2_components_7layers.csv",
+      "equal_csv_bytes": true
+    },
+    {
+      "file": "static/hwsd2/hwsd2_properties_7layers_1km_EPSG6933.tif",
+      "equal_values_and_masks": true,
+      "same_grid": true,
+      "shape": [
+        140,
+        13,
+        13
+      ]
+    },
+    {
+      "file": "static/hwsd2/hwsd2_smu_1km_EPSG6933.tif",
+      "equal_values_and_masks": true,
+      "same_grid": true,
+      "shape": [
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "file": "annual/mcd12q1/mcd12q1_lc_type1_2013_500m_EPSG6933.tif",
+      "equal_values_and_masks": true,
+      "same_grid": true,
+      "shape": [
+        1,
+        26,
+        26
+      ]
+    }
+  ],
+  "resume": "reused",
+  "relocated_context_validation": "passed",
+  "processing_code_sha256": {
+    "context_sources.py": "9581c7eb95aa4ab1dc6b1e764acb0d54cd0cf54944d2f34749840ea2af246593",
+    "processing/srtm.py": "9ead3bd7940a6d66b5a6586254dd1b9e12220fa8ac4550904cf278cddb046512",
+    "processing/hwsd2.py": "6144c32eb0232921bf96fd4a488d5b742978f0f5ede4217a17f8e8d432d627fb",
+    "processing/landcover.py": "6b535f5d8b5e01d4e0eb83fae7b0e3ebf2002b557b3f67d3f6e229098bd4b729",
+    "grid.py": "4a0e338f61a438e4d550b6cdf2618b12f8f13a86340ad5a07ab3c9121c22bcb2",
+    "gldas21.py": "f13f050de65cabc5afd4f42970786bbd4d05e770a4c43aaac4d1cabc870a4faa"
+  },
+  "scope": "Known V1 reference; not a new-location or live-provider acceptance",
+  "date": "2026-11-07"
+}

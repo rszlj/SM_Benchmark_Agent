@@ -1,0 +1,20 @@
+{
+  "spatial": {
+    "points": [
+      [
+        -86.9023,
+        32.3182
+      ]
+    ]
+  },
+  "years": [
+    2015
+  ],
+  "sources": [
+    "smap_l4"
+  ],
+  "station_targets": "absent",
+  "credential_ref": "credentials.toml",
+  "output_root": "outputs/smap-example",
+  "max_packages": 1
+}

@@ -1,0 +1,9 @@
+{
+  "spatial": {"points": [[-86.9023, 32.3182]]},
+  "years": [2013],
+  "sources": ["mod13q1_ndvi", "myd13q1_ndvi", "mod11a2_lst", "myd11a2_lst"],
+  "station_targets": "absent",
+  "credential_ref": "credentials.toml",
+  "output_root": "outputs/modis-example",
+  "max_packages": 1
+}

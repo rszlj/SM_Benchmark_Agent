@@ -1,0 +1,4 @@
+{
+  "project": "YOUR_AUTHORIZED_GEE_PROJECT",
+  "auth_mode": "interactive"
+}

@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-08",
+  "mode": "Offline prepared 50 m acquisition replay; network blocked",
+  "scope": "One V1 anchor/year; not raw SAR aggregation, live GEE or full discovery completeness acceptance",
+  "anchor_id": "EASE2_M09km_R0403_C0871",
+  "year": 2015,
+  "acquisition_count": 2,
+  "source_archive_sha256": "ccb520024ac4800ecbd5f9bfd21f92303036cd5710df3f016d80b34072f8d725",
+  "input_sha256": [
+    {
+      "raster_sha256": "82d3155c7633bd3ed7ed3a5bf3166bd14ef36aa11b7378d36a4e63281f559015",
+      "manifest_sha256": "a008cf3c7365d7268ba527d2747d9dec5a78a502e45b60c42d6dc25ae488e60d"
+    },
+    {
+      "raster_sha256": "b815de899942d27e9b5fc6f9bb3ee67953fa1df8ae7dc8303c5530d6c6d638c7",
+      "manifest_sha256": "8204f7532322dab5ca3ae5ba5e4f428d08578964762fcb50c7fb8a1bcd51ebbf"
+    }
+  ],
+  "variables_values_masks_dimensions_attributes_equal": {
+    "vv": true,
+    "vh": true,
+    "incidence_angle": true,
+    "platform": true,
+    "orbit_pass": true,
+    "absolute_orbit": true,
+    "relative_orbit": true,
+    "acquisition_id": true,
+    "source_scene_id": true,
+    "crs": true,
+    "time": true,
+    "x": true,
+    "y": true
+  },
+  "resume": "reused",
+  "relocation": {
+    "files": 14,
+    "listed_files": 13,
+    "anchor_id": "EASE2_M09km_R0403_C0871",
+    "year": 2015
+  },
+  "processing_code_sha256": {
+    "sentinel1_sources.py": "a30546bc7a724c8293283f991c588b1e4278ea266386aba03f0943b6caccac22",
+    "processing/sentinel1.py": "851f3f13caab549a1ea870e2b582fc252fe1b926422e0b3ba17c12254b0e8f30",
+    "processing/srtm.py": "9ead3bd7940a6d66b5a6586254dd1b9e12220fa8ac4550904cf278cddb046512",
+    "grid.py": "4a0e338f61a438e4d550b6cdf2618b12f8f13a86340ad5a07ab3c9121c22bcb2",
+    "gldas21.py": "f13f050de65cabc5afd4f42970786bbd4d05e770a4c43aaac4d1cabc870a4faa",
+    "sentinel1_workflow.py": "2eee45a8bb10316cbf4383f6899fca889de79bcfdd839ded92c47e4ce6e0fa77",
+    "delivery.py": "ba199ff2b1e7edaed1631007b3c0ebf6891b47811990079d943bdb0b97d0acd4",
+    "archives.py": "9b35086e9e7150fe5e0e50772d2a65940f6639aef762981545536c65571e420c",
+    "gldas_workflow.py": "000c64bed4eabb0ee4acf1fc1f22ff5429d09a39c7d66f7c7227cf0b19fd76d1",
+    "extension_agent.py": "57de8c5fc8a96a7e7f196444099de2baa7bb62ba236259fa031bed4b145ca73d"
+  },
+  "execution": "Independent wheel installation; original production namespace not imported"
+}

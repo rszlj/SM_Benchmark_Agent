@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-08",
+  "scope": "Instruction architecture only; runtime preparation code unchanged",
+  "frontmatter": [
+    {
+      "skill": "extend-soil-moisture-benchmark",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-era5-land",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-gldas21",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-hwsd2",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-imerg-v07",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-mcd12q1",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-mod11a2-lst",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-mod13q1-ndvi",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-myd11a2-lst",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-myd13q1-ndvi",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-sentinel1",
+      "passed": true,
+      "message": "Skill is valid!"
+    },
+    {
+      "skill": "prepare-srtm",
+      "passed": true,
+      "message": "Skill is valid!"
+    }
+  ],
+  "source_skill_count": 11,
+  "coordinator_count": 1,
+  "shared_reference_count": 2,
+  "full_suite": {
+    "tests": 69,
+    "result": "passed",
+    "seconds": 51.341
+  },
+  "model_behavior_tested": false,
+  "live_provider_access": false,
+  "pushed_to_github": false,
+  "routing_contract_tests": {
+    "tests": 5,
+    "result": "passed",
+    "checks": [
+      "Catalogue coverage and exact adapter/profile mapping",
+      "Unique source skills and valid repository-local references",
+      "Real CLI callables, optional dependency groups and request examples",
+      "All eleven adapters preview offline without creating a cache",
+      "Separate product identities, compatible workflow grouping and context bundle rejection for a single-source request"
+    ]
+  },
+  "coordinator_lines": {
+    "before": 149,
+    "after": 51
+  },
+  "runtime_unchanged": {
+    "python_files": 29,
+    "comparison": "Byte-identical to previously accepted Sentinel-1 installed package"
+  },
+  "manual_scope_review": [
+    "Beginner onboarding does not preselect sources or force GEE",
+    "Aqua NDVI with existing contexts selects only Aqua preparation guidance",
+    "HWSD2 remains non-GEE with explicit global-cache and CLI-bundle scope",
+    "ERA5 and IMERG share the time-series command but retain separate scientific instructions",
+    "Sentinel-1 plus ERA5 remains a cross-workflow integration gap",
+    "SMAP L4 and ISMN remain unsupported preparation without placeholder skills"
+  ],
+  "limits": "Structural and executable offline contract checks plus existing regressions; no independent model-session, cross-model or live provider acceptance",
+  "instruction_sha256": {
+    "skills/.gitkeep": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "skills/extend-soil-moisture-benchmark/SKILL.md": "152c2eb6edd4be984f60529a368c799a3c26e8c49d8191d9b2b54939128a397b",
+    "skills/prepare-era5-land/SKILL.md": "b00db9f78e8636f0d26ccf21d7de62368b31c3dfce81d4dfcd8a129fa8a4b38f",
+    "skills/prepare-gldas21/SKILL.md": "f90155d1f7d2d8a0461fbe4375bc4f30c00ec7279461c63da74477248afb488f",
+    "skills/prepare-hwsd2/SKILL.md": "4c4dd66ff68c52c0e0606806804c7712b736c91d6642ce8f90c9c793cec6d0ef",
+    "skills/prepare-imerg-v07/SKILL.md": "ddeb96172e5960bf81cdb89679424c989529826e81325b9d3938255cfa14d41f",
+    "skills/prepare-mcd12q1/SKILL.md": "ad01ece054d35a5b454746dd61893934cd02ef900d31f8821c776b3321fee11d",
+    "skills/prepare-mod11a2-lst/SKILL.md": "30663d557373fed1a83a3c18040ca12930a5aef7b35ab579608edeeadcac8bfa",
+    "skills/prepare-mod13q1-ndvi/SKILL.md": "85bc2ea9c1a465da262c8c651a0856ea3a8ae30cbd9e2c449ccc8d74da5df209",
+    "skills/prepare-myd11a2-lst/SKILL.md": "7b5d7c2474c8cea2fc77ce07d87c2a55a15799bcc9886b79c07a9f4b2b59d523",
+    "skills/prepare-myd13q1-ndvi/SKILL.md": "898303bd0ed3057ca28d958f81fac9c470b0261b52c9e7263a6e6d600af952b9",
+    "skills/prepare-sentinel1/SKILL.md": "f5c18ff1f4acff3989116d0ec98e84956a1ec4a613c83b1a516420fb9e447b51",
+    "skills/prepare-srtm/SKILL.md": "e3c1d5034af319dc762f25a8115d94785e98db74be249c17f2b6c6dc5b91996a",
+    "skills/shared/execution.md": "6e3b8cdca352b752428888db699c47d50c3ff210d35fb6051113c9ea8e15d7bb",
+    "skills/shared/onboarding.md": "1d80acf357738cbdc93b3e167f385d747c70425005109a4443a679602ccc4145",
+    "skills/source-index.json": "decd7f1f9879075beda4b9957baac442f5793448f8ad426a5f9d3eed225811b5"
+  }
+}

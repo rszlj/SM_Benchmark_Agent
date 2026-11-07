@@ -1,0 +1,164 @@
+{
+  "schema": "benchmark-source-skill-index-v1",
+  "path_base": "repository_root",
+  "context_prerequisites": [
+    "srtm",
+    "hwsd2",
+    "mcd12q1"
+  ],
+  "workflows": {
+    "contexts": {
+      "command": "sm-benchmark-context",
+      "subcommand": "prepare",
+      "guide": "docs/context-preparation.md",
+      "example": "configs/context-request.example.json",
+      "extra": "contexts",
+      "scope": "one anchor/year; absent targets; all three context sources required",
+      "included_sources": [
+        "srtm",
+        "hwsd2",
+        "mcd12q1"
+      ],
+      "requires_context": false
+    },
+    "gldas": {
+      "command": "sm-benchmark-agent",
+      "selector": [
+        "--workflow",
+        "gldas"
+      ],
+      "guide": "docs/gldas-pilot.md",
+      "example": "configs/gldas-request.example.json",
+      "extra": "gldas",
+      "scope": "one anchor/year; absent targets; four GLDAS layers and reviewed contexts",
+      "requires_context": true
+    },
+    "modis": {
+      "command": "sm-benchmark-modis",
+      "guide": "docs/modis-preparation.md",
+      "example": "configs/modis-request.example.json",
+      "extra": "modis",
+      "scope": "one anchor/year; absent targets; selected separate MODIS sources and reviewed contexts",
+      "requires_context": true
+    },
+    "timeseries": {
+      "command": "sm-benchmark-timeseries",
+      "guide": "docs/timeseries-preparation.md",
+      "example": "configs/timeseries-request.example.json",
+      "extra": "timeseries",
+      "scope": "one anchor/year; absent targets; selected ERA5-Land/IMERG sources and reviewed contexts",
+      "requires_context": true
+    },
+    "sentinel1": {
+      "command": "sm-benchmark-sentinel1",
+      "guide": "docs/sentinel1-preparation.md",
+      "example": "configs/sentinel1-request.example.json",
+      "extra": "sentinel1",
+      "scope": "one anchor/year; absent targets; Sentinel-1 and reviewed contexts",
+      "requires_context": true
+    },
+    "smap": {
+      "command": "sm-benchmark-smap",
+      "guide": "docs/smap-preparation.md",
+      "example": "configs/smap-request.example.json",
+      "extra": "smap",
+      "scope": "one anchor/year; absent targets; SMAP v007 legacy GEE sampling and reviewed contexts; native-cell equivalence unverified",
+      "requires_context": true
+    }
+  },
+  "sources": {
+    "srtm": {
+      "skill": "skills/prepare-srtm/SKILL.md",
+      "profile_id": "srtm-v1-horn-six-band",
+      "workflow": "contexts",
+      "provider": "GEE"
+    },
+    "hwsd2": {
+      "skill": "skills/prepare-hwsd2/SKILL.md",
+      "profile_id": "hwsd2-v1-corrected-seven-layer",
+      "workflow": "contexts",
+      "provider": "official archives / local cache"
+    },
+    "mcd12q1": {
+      "skill": "skills/prepare-mcd12q1/SKILL.md",
+      "profile_id": "mcd12q1-v1-igbp-annual",
+      "workflow": "contexts",
+      "provider": "GEE"
+    },
+    "gldas21": {
+      "skill": "skills/prepare-gldas21/SKILL.md",
+      "profile_id": "gldas21-noah-four-layer-v1",
+      "workflow": "gldas",
+      "provider": "GEE"
+    },
+    "mod13q1_ndvi": {
+      "skill": "skills/prepare-mod13q1-ndvi/SKILL.md",
+      "profile_id": "mod13q1-ndvi-v1-separate",
+      "workflow": "modis",
+      "provider": "GEE"
+    },
+    "myd13q1_ndvi": {
+      "skill": "skills/prepare-myd13q1-ndvi/SKILL.md",
+      "profile_id": "myd13q1-ndvi-v1-separate",
+      "workflow": "modis",
+      "provider": "GEE"
+    },
+    "mod11a2_lst": {
+      "skill": "skills/prepare-mod11a2-lst/SKILL.md",
+      "profile_id": "mod11a2-lst-v1-separate",
+      "workflow": "modis",
+      "provider": "GEE"
+    },
+    "myd11a2_lst": {
+      "skill": "skills/prepare-myd11a2-lst/SKILL.md",
+      "profile_id": "myd11a2-lst-v1-separate",
+      "workflow": "modis",
+      "provider": "GEE"
+    },
+    "era5_land": {
+      "skill": "skills/prepare-era5-land/SKILL.md",
+      "profile_id": "benchmark-raw18-nas-compatible-v1",
+      "workflow": "timeseries",
+      "provider": "GEE"
+    },
+    "imerg_v07": {
+      "skill": "skills/prepare-imerg-v07/SKILL.md",
+      "profile_id": "imerg-v07-native-half-hourly-v1",
+      "workflow": "timeseries",
+      "provider": "GEE"
+    },
+    "sentinel1": {
+      "skill": "skills/prepare-sentinel1/SKILL.md",
+      "profile_id": "sentinel1-grd-iw-50m-v1",
+      "workflow": "sentinel1",
+      "provider": "GEE"
+    },
+    "smap_l4": {
+      "skill": "skills/prepare-smap-l4/SKILL.md",
+      "profile_id": "smap-l4-v007-legacy-13km-v1",
+      "workflow": "smap",
+      "provider": "GEE"
+    }
+  },
+  "unimplemented": {
+    "ismn": "V1 catalogue identity only; ISMN ingestion is outside the current extension scope. Future user-supplied station data may be private and need a provider-independent contract. Absent targets remain supported."
+  },
+  "integrated_workflow": {
+    "command": "sm-benchmark-prepare",
+    "guide": "docs/multi-source-preparation.md",
+    "example": "configs/multi-request.example.json",
+    "scope": "one anchor/year; absent targets; selected dynamic sources and reviewed contexts",
+    "sources": [
+      "gldas21",
+      "mod13q1_ndvi",
+      "myd13q1_ndvi",
+      "mod11a2_lst",
+      "myd11a2_lst",
+      "era5_land",
+      "imerg_v07",
+      "sentinel1",
+      "smap_l4"
+    ],
+    "dependency_policy": "Use extras of selected source workflows"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-07",
+  "sources": [
+    {
+      "path": "src/soil_moisture_benchmark/sources/gee_era5_land.py",
+      "sha256": "45f01484dd6d7d5f655805d00b9d3ace021cd9ae5190d190dac9d9ed74993c04"
+    },
+    {
+      "path": "scripts/fill_era5_land_gaps.py",
+      "sha256": "470bda32d4474d3484850ec6d84eda60f90220ffe777540b792f5a4b90075c44"
+    },
+    {
+      "path": "src/soil_moisture_benchmark/sources/gee_imerg_v07.py",
+      "sha256": "f519ab2e298750d0cb899db086f5dc6555f8eeda0c3949d13fe60ff95c771028"
+    },
+    {
+      "path": "scripts/download_imerg_v07_all_anchors.py",
+      "sha256": "113a692d967f345179900c426ee9ea82eb253a68ed9bb712272bb58a144f219e"
+    }
+  ],
+  "destinations": {
+    "timeseries_profiles.py": "dc1cd059e5d4b27f8a217ce99a7f858036727bc2260b09be74dd3e23476ae82f",
+    "timeseries_sources.py": "1985b4030795914524ed25ad905dc512c519d74ae28c03d26de5dec950d47a59",
+    "timeseries_workflow.py": "1f7bee94fe2a734ffbe9ad675ab2a650bfbd98e19c02e862300d04f35523f9a1"
+  },
+  "policies": [
+    "ERA5 raw18 NAS-compatible variables and float32 representation; no deaccumulation",
+    "IMERG missing-band harmonization and sentinel-to-null conversion; native half-hour rate and source status retained",
+    "Annual batch orchestration replaced by bounded one-cell/month checkpoints",
+    "Native grid functions already migrated; GLDAS official login and bounded retry helper reused without modification"
+  ],
+  "scope": "Independent GEE adapters; historical NAS merge scripts are provenance only, not runtime dependencies",
+  "shared_delivery_change": {
+    "file": "src/sm_benchmark_agent/delivery.py",
+    "sha256": "ba199ff2b1e7edaed1631007b3c0ebf6891b47811990079d943bdb0b97d0acd4",
+    "change": "Shorter temporary archive tree; output schema and scientific values unchanged"
+  }
+}

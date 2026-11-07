@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-07",
+  "mode": "live_GEE_acceptance",
+  "unit_tests": 28,
+  "anchor_id": "EASE2_M09km_R0540_C0257",
+  "year": 2013,
+  "source_state": "available",
+  "record_count": 2920,
+  "expected_record_count": 2920,
+  "missing_timestamp_count": 0,
+  "null_counts": {
+    "SoilMoi0_10cm_inst": 0,
+    "SoilMoi10_40cm_inst": 0,
+    "SoilMoi40_100cm_inst": 0,
+    "SoilMoi100_200cm_inst": 0
+  },
+  "all_rows_equal_to_V1_reference": true,
+  "reference_row_count": 2920,
+  "resume": "reused",
+  "relocation": {
+    "files": 14,
+    "listed_files": 13,
+    "anchor_id": "EASE2_M09km_R0540_C0257",
+    "year": 2013
+  },
+  "relocated_rasters_opened": 4,
+  "archive_path": "outputs/gldas-online-acceptance/packages/EASE2_M09km_R0540_C0257/2013.zip",
+  "archive_sha256": "0c91e47395913ac78decf184accf47c0a2e806f78a94f0e5a1511f3855ccd859",
+  "processing_code_sha256": {
+    "gldas21.py": "f13f050de65cabc5afd4f42970786bbd4d05e770a4c43aaac4d1cabc870a4faa",
+    "gldas_workflow.py": "000c64bed4eabb0ee4acf1fc1f22ff5429d09a39c7d66f7c7227cf0b19fd76d1",
+    "extension_agent.py": "57de8c5fc8a96a7e7f196444099de2baa7bb62ba236259fa031bed4b145ca73d",
+    "adapters.py": "2923a6a8ae4a80df31ed074fb986949f468cf62dfee4f1a1f8a61219791bbe4b",
+    "grid.py": "4a0e338f61a438e4d550b6cdf2618b12f8f13a86340ad5a07ab3c9121c22bcb2",
+    "native_cells.py": "c0f14d8fccc9ef8a7d61018ae7b450f45744dbbef4eea0d9a2043a0eb3ccfe4f",
+    "delivery.py": "c0947a64b2874f654d86e49a1e04824d514255f666fc325d110bc63b27951ab8",
+    "archives.py": "9b35086e9e7150fe5e0e50772d2a65940f6639aef762981545536c65571e420c"
+  },
+  "scope_limitations": "Known V1 cell/year provider test; not new-location multi-source acceptance",
+  "public_package_privacy_scan": "passed; configured project, local paths and credential files absent"
+}

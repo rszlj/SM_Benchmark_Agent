@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-07",
+  "mode": "offline isolated wheel import in existing development environment",
+  "tests_run": 39,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "fresh_environment_tested": false,
+  "live_provider_tested": false
+}

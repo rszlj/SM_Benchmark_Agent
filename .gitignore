@@ -30,6 +30,7 @@ gee.env
 
 # Local runs and data products
 .tmp/
+.local/
 cache/
 downloads/
 outputs/

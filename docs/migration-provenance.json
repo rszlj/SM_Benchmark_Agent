@@ -1,0 +1,37 @@
+{
+  "source_project": "Agent4Benchmark",
+  "source_release": "benchmark-initial-2000-2025-v1",
+  "modules": [
+    {
+      "source": "src/soil_moisture_benchmark/grid.py",
+      "destination": "src/sm_benchmark_agent/grid.py",
+      "original_sha256": "4a0e338f61a438e4d550b6cdf2618b12f8f13a86340ad5a07ab3c9121c22bcb2"
+    },
+    {
+      "source": "src/soil_moisture_benchmark/native_cells.py",
+      "destination": "src/sm_benchmark_agent/native_cells.py",
+      "original_sha256": "c0f14d8fccc9ef8a7d61018ae7b450f45744dbbef4eea0d9a2043a0eb3ccfe4f"
+    },
+    {
+      "source": "src/soil_moisture_benchmark/archives.py",
+      "destination": "src/sm_benchmark_agent/archives.py",
+      "original_sha256": "9b35086e9e7150fe5e0e50772d2a65940f6639aef762981545536c65571e420c"
+    },
+    {
+      "source": "src/soil_moisture_benchmark/catalogue.py",
+      "destination": "src/sm_benchmark_agent/catalogue.py",
+      "original_sha256": "e852cdfb150203f7ad57a464ea035c77f965cdb2118abe6c5a620c5c2838ccb6"
+    },
+    {
+      "source": "src/soil_moisture_benchmark/delivery.py",
+      "destination": "src/sm_benchmark_agent/delivery.py",
+      "original_sha256": "c0947a64b2874f654d86e49a1e04824d514255f666fc325d110bc63b27951ab8"
+    },
+    {
+      "source": "src/soil_moisture_benchmark/extension_agent.py",
+      "destination": "src/sm_benchmark_agent/extension_agent.py",
+      "original_sha256": "4ee5e7f507b06b415e6da874b387b2d729cb8addc6179284f54ea5503a8c4cf8"
+    }
+  ],
+  "catalogue_sha256": "42bba36f8c95d02abf80cfba8968885808a50daacd632407858cf8bd27624baa"
+}

@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-07",
+  "kernels": [
+    {
+      "source": "src/soil_moisture_benchmark/sources/mod13q1_ndvi.py",
+      "source_sha256": "44fe43b03e257593859e6de47554fcd775576169d0339bfaa2bc22e65ed793cb",
+      "destination": "src/sm_benchmark_agent/processing/ndvi.py",
+      "destination_sha256": "fdf25c7dd73f82661df6ab1e534cf5bae0b3cece9a04f6a1953abc205f285dab"
+    },
+    {
+      "source": "src/soil_moisture_benchmark/sources/mod11a2_lst.py",
+      "source_sha256": "4707f26aad8979980925fb88c566684c03e87b0b2d578d8c0af09951543b6c08",
+      "destination": "src/sm_benchmark_agent/processing/lst.py",
+      "destination_sha256": "7abb6a82249a3079bef577fb7f0b044732416ae04a8c1320bc7508a41b60fc51"
+    },
+    {
+      "source": "scripts/rebuild_myd13q1_from_local_raw.py",
+      "source_sha256": "2ee2e906cbd66aebf16d3137c292ced3a548718eafa960489d40889d5a9bf6c6",
+      "destination": "src/sm_benchmark_agent/processing/aqua_ndvi.py",
+      "policy": "Final V1 corrected sinusoidal CRS and normalized convolution of values and validity weights",
+      "destination_sha256": "85f7cb14b56599573028585d837d17fad0a7fb4b84e39abd03ff93af48245a9e"
+    }
+  ]
+}

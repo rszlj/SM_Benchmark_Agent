@@ -1,0 +1,49 @@
+{
+  "mode": "offline_real_data_replay; no live provider calls",
+  "source_archive_sha256": "43663b9fb055167c36a97967d85971871585dc0b302ef9495e4b3284b714c68d",
+  "anchor_id": "EASE2_M09km_R0540_C0257",
+  "year": 2013,
+  "row_count": 2920,
+  "all_rows_values_nulls_and_timestamps_equal": true,
+  "relocated_rasters_opened": 4,
+  "resume": "reused",
+  "verification": {
+    "files": 14,
+    "listed_files": 13,
+    "anchor_id": "EASE2_M09km_R0540_C0257",
+    "year": 2013
+  },
+  "result": {
+    "status": "packaged",
+    "archive": "delivery/packages/EASE2_M09km_R0540_C0257/2013.zip",
+    "sha256": "98b392d8e9f4292b8332340c6a21f2041e36e243a43e81aa9296d1c21cdb85e7",
+    "source_availability": "available",
+    "validation": {
+      "passed": true,
+      "checks": {
+        "integrity": "passed",
+        "schema": "passed",
+        "source": "passed",
+        "units": "passed",
+        "native_grid": "passed",
+        "timestamps": "passed",
+        "null_semantics": "passed"
+      },
+      "gaps": []
+    }
+  },
+  "date": "2026-11-07",
+  "unit_tests": 27,
+  "installed_wheel": "passed",
+  "live_gee_acceptance": "not_run; user configuration and reviewed online plan required",
+  "processing_code_sha256": {
+    "gldas21.py": "6ff256514f6d9e098291ef0ed9e506b8952152315679980bbe9de070248bc703",
+    "gldas_workflow.py": "000c64bed4eabb0ee4acf1fc1f22ff5429d09a39c7d66f7c7227cf0b19fd76d1",
+    "extension_agent.py": "57de8c5fc8a96a7e7f196444099de2baa7bb62ba236259fa031bed4b145ca73d",
+    "adapters.py": "2923a6a8ae4a80df31ed074fb986949f468cf62dfee4f1a1f8a61219791bbe4b",
+    "grid.py": "4a0e338f61a438e4d550b6cdf2618b12f8f13a86340ad5a07ab3c9121c22bcb2",
+    "native_cells.py": "c0f14d8fccc9ef8a7d61018ae7b450f45744dbbef4eea0d9a2043a0eb3ccfe4f",
+    "delivery.py": "c0947a64b2874f654d86e49a1e04824d514255f666fc325d110bc63b27951ab8",
+    "archives.py": "9b35086e9e7150fe5e0e50772d2a65940f6639aef762981545536c65571e420c"
+  }
+}

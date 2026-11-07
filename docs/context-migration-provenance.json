@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-07",
+  "kernels": [
+    {
+      "source": "src/soil_moisture_benchmark/sources/gee_srtm.py",
+      "source_sha256": "55d72bef90bf396f3bf48ec1df7cb5ace4e7067be9cc78616304b32e38608292",
+      "destination": "src/sm_benchmark_agent/processing/srtm.py",
+      "scope": "V1 scientific kernel; SRTM legacy downloader excluded; imports adapted",
+      "migrated_sha256": "9ead3bd7940a6d66b5a6586254dd1b9e12220fa8ac4550904cf278cddb046512"
+    },
+    {
+      "source": "src/soil_moisture_benchmark/sources/hwsd2.py",
+      "source_sha256": "312e3eabe0eb03550710573df004e1745a2869c704b9932c24b4730de7a28c76",
+      "destination": "src/sm_benchmark_agent/processing/hwsd2.py",
+      "scope": "V1 scientific kernel; imports adapted; optional short tile directory and exception-safe database closure added; scientific formulas unchanged",
+      "migrated_sha256": "6144c32eb0232921bf96fd4a488d5b742978f0f5ede4217a17f8e8d432d627fb"
+    },
+    {
+      "source": "scripts/download_mcd12q1_lulc_2025.py",
+      "source_sha256": "8d7ae75aa9f21955db15ae9d11b38c091e18a29d445c4baa2bac52e091916c9d",
+      "destination": "src/sm_benchmark_agent/processing/landcover.py",
+      "scope": "Annual LC_Type1 derivation and native download request; year parameterized, private metadata omitted",
+      "migrated_sha256": "6b535f5d8b5e01d4e0eb83fae7b0e3ebf2002b557b3f67d3f6e229098bd4b729"
+    },
+    {
+      "source": "scripts/revise_public_trial_package.py",
+      "source_sha256": "8dae9d0ef6c15492d65858ff090ba0d9bd51a517dc8e31eaa5f35d27fdc6766f",
+      "destination": "src/sm_benchmark_agent/processing/landcover.py",
+      "scope": "Masked float32/NaN conversion; scientific tags explicitly allowlisted",
+      "migrated_sha256": "6b535f5d8b5e01d4e0eb83fae7b0e3ebf2002b557b3f67d3f6e229098bd4b729"
+    }
+  ]
+}
