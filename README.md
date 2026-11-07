@@ -3,7 +3,7 @@
 An agent-assisted workflow for extending the Global Soil Moisture Benchmark to
 user-specified locations, periods and registered data sources.
 
-> **Development preview for external testing ? not a stable release.**
+> **Development preview for external testing; not a stable release.**
 > One-location/month online checks have passed. Fresh-environment installation
 > and Kimi model-session acceptance remain pending. Start with a small request;
 > see [examples](docs/usage-examples.md) and [environment setup](docs/python-environment.md).
@@ -19,10 +19,10 @@ user-specified locations, periods and registered data sources.
 
 > Read AGENTS.md and skills/extend-soil-moisture-benchmark/SKILL.md.
 > Help me get started. Check my environment, guide me through any required
-> configuration one step at a time, and ask what location and years I need.
+> configuration one step at a time, and ask what location and dates I need.
 
 > 请阅读 AGENTS.md 和 skills/extend-soil-moisture-benchmark/SKILL.md。
-> 帮我开始使用：检查环境，逐步引导必要的配置，再询问我要处理的地点和年份。
+> 帮我开始使用：检查环境，逐步引导必要的配置，再询问我要处理的地点和起止日期。
 
 You do not need to write Python, prepare JSON/TOML files, or install the skill
 separately. The agent reads the instructions from this checkout, checks for a
@@ -65,36 +65,57 @@ This reference is also available if you prefer manual setup.
 
 ## Status
 
-The complete extension agent is under development. Request normalization, offline
-catalogue planning, verified local package reuse and explicit asset assembly are
-implemented as internal foundations. These are not a separate local-only product.
-The first GLDAS retrieval/validation/assembly branch is implemented and tested
-with simulated providers, offline real-data replay and one live GEE cell/year
-acceptance. End-to-end new-location multi-source extension remains pending. See
-[GLDAS pilot](docs/gldas-pilot.md) and [implementation status](docs/implementation.md).
+**Development preview, ready for external testing.** The repository implements
+source preparation and delivery through maintained Python tools, coordinated by
+shared agent instructions and source-specific skills.
 
-SRTM, corrected HWSD2 and annual MCD12Q1 context preparation have now been migrated
-and tested offline, including comparison with a V1 reference package. See
-[context preparation](docs/context-preparation.md). Their live acquisition and
-clean-environment acceptance remain pending.
+### Implemented
 
-Separate Terra/Aqua NDVI and day/night LST adapters are also migrated. All six
-annual rasters match a V1 reference package exactly in offline raw-input replay;
-a one-month live run also passes with Aqua LST masking recorded. See [MODIS preparation](docs/modis-preparation.md).
+- Twelve source adapters: SRTM, HWSD2, MCD12Q1, GLDAS, ERA5-Land, IMERG,
+  separate Terra/Aqua NDVI and LST, Sentinel-1, and SMAP L4 v007.
+- Unified multi-source preparation for one anchor cell and a date range within
+  one year, with matching prepared contexts and absent station targets.
+  Inclusive UTC start/end dates are honored; full-year requests remain supported.
+  MODIS selects composite start dates and retains original composite support.
+- Source-specific checkpoints, bounded retries, output validation and one ZIP
+  containing selected inputs, context assets, provenance and explicit source gaps.
+- Offline V1 catalogue lookup and verified local ZIP reuse. Python environment
+  selection, dependency diagnosis and launch through a recorded interpreter path.
 
-ERA5-Land raw hourly and IMERG half-hourly native-cell preparation now support
-monthly checkpoints and annual delivery. Offline source-table replay matches V1;
-one-month live retrieval also passes. See [time-series preparation](docs/timeseries-preparation.md).
+See [usage examples](docs/usage-examples.md),
+[unified preparation](docs/multi-source-preparation.md), and
+[Python environment handling](docs/python-environment.md).
 
-Sentinel-1 now has bounded discovery, acquisition checkpoints and V1-compatible
-50 m annual NetCDF assembly. Prepared-acquisition replay and a separate one-month live GEE retrieval
-test pass. See [Sentinel-1 preparation](docs/sentinel1-preparation.md).
+### Verified
 
-The intended workflow resolves requests to EASE-Grid anchor cells and calendar
-years, checks existing coverage, reuses compatible data, retrieves missing inputs
-with user-authorized tools, validates outputs and assembles annual packages.
-Extensions without station observations will contain inputs and metadata without
-station targets.
+- Offline source tests and V1 replay checks, plus a live GLDAS cell/year test.
+- A live multi-source run for April 2015: seven dynamic sources available,
+  Aqua LST partial due to masked pixels, and no matching Sentinel-1 acquisitions
+  at that location. Contexts were reused. See [monthly evidence](docs/period-online-validation.json).
+- A separate Sentinel-1 April 2015 run at a location with 11 acquisitions:
+  actual downloads, 50 m processing, NetCDF delivery, relocated archive checks
+  and network-blocked reuse passed. See [Sentinel-1 evidence](docs/sentinel1-online-validation.json).
+
+These results validate the recorded cases, not every location, platform or agent
+model. Historical validation files retain their original code versions and scope.
+
+### Remaining limits
+
+- Fresh-environment installation, live context acquisition and a fully new-location
+  workflow including context preparation still need acceptance.
+- Kimi has a discovery entry and setup instructions, but no Kimi model session
+  has been validated. Tool-level tests are not cross-model behavioral evidence.
+- Multi-anchor/year batch scheduling is not implemented. The agent splits
+  cross-year date requests into per-year segments with matching contexts.
+- SMAP v007 live retrieval has passed for one month; equivalence of its legacy
+  GEE geographic sampling to original NAS/EASE native-cell values remains unverified.
+- Station-data ingestion, including private observations, is outside current scope.
+- The external V1 download endpoint is not configured. Catalogue entries alone
+  do not provide remote package retrieval.
+
+See [implementation details](docs/implementation.md) for the remaining acceptance
+work. This is not yet a stable release or a claim that all manuscript workflow
+validation has been completed.
 
 ## Repository structure
 
@@ -115,34 +136,6 @@ Users supply their own provider credentials and authorized projects. Credentials
 downloaded data, generated packages and local environments must not be committed.
 Historical production and recovery scripts are not part of this repository.
 
-SMAP L4 v007 now has an independent legacy GEE sampling adapter, monthly
-checkpoints and annual delivery. Offline V1 table replay passes; live retrieval
-and native EASE-cell equivalence remain unverified. See
-[SMAP preparation](docs/smap-preparation.md).
-
-Station-data ingestion is outside the current extension scope. Users may have
-private observations rather than ISMN data; a future optional interface will need
-a separate data contract. Current preparation supports absent station targets.
-Existing station targets in V1 packages remain unchanged.
-
-Unified source preparation now supports selected source families in one
-anchor/year package with matching prepared contexts and absent targets. It uses
-existing adapters and checkpoint recovery. See [unified preparation](docs/multi-source-preparation.md).
-Live integrated and multi-anchor/year acceptance remain pending.
-
-The unified preparation command also accepts user-defined inclusive UTC start/end
-dates. It retrieves the requested interval instead of first downloading a full
-year. MODIS retains composite-start selection and original composite support.
-See [date-range behavior](docs/multi-source-preparation.md#user-defined-dates).
-
-A one-month live GEE run now passes through unified preparation and delivery;
-see [online evidence](docs/period-online-validation.json). Sentinel-1 had no
-matching acquisitions in this case, and Aqua LST was partial. Contexts were reused.
-
-Sentinel-1 now also passes a separate month with 11 real acquisitions, including
-download, 50 m processing, NetCDF delivery and offline reuse. See
-[Sentinel-1 online evidence](docs/sentinel1-online-validation.json).
-
-Python environment selection is explicit and persisted locally. The agent uses
-[environment diagnosis and launch](docs/python-environment.md) so later sessions
-and interrupted tasks keep the same interpreter without relying on shell activation.
+Station-data ingestion is outside the current extension scope. Existing station
+targets in V1 packages remain unchanged. New preparation packages contain inputs
+and metadata with station targets explicitly absent.
