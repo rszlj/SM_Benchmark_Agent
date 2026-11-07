@@ -1,0 +1,49 @@
+# Local environments and Python build products
+.venv/
+venv/
+.conda/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Authentication and local configuration
+.env
+.env.*
+!.env.example
+.credentials/
+credentials.toml
+credentials.*.toml
+!credentials.example.toml
+*.cdsapirc
+.cdsapirc
+gee-config.json
+gee.env
+*service-account*.json
+*service_account*.json
+*.pem
+*.key
+
+# Local runs and data products
+.tmp/
+cache/
+downloads/
+outputs/
+*.log
+*.part
+*.sqlite
+*.sqlite-*
+
+# Only release metadata and catalogues belong in data/v1.
+/data/*
+!/data/v1/
+/data/v1/*
+!/data/v1/README.md
+!/data/v1/release.json
+!/data/v1/catalog.parquet
+!/data/v1/catalog.csv.gz
+!/data/v1/catalog.csv
