@@ -1,0 +1,9 @@
+{
+  "spatial": {"points": [[-106.0, 36.0]]},
+  "start": "2020-04-01",
+  "end": "2020-04-30",
+  "sources": ["smap_l3"],
+  "station_targets": "absent",
+  "output_root": "outputs/smap-l3-example",
+  "max_packages": 1
+}

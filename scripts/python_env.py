@@ -11,6 +11,7 @@ import tomllib
 ROOT = Path(__file__).resolve().parents[1]
 RECORD = Path('.local/python-environment.json')
 MODULES = {'core': ['pyproj'], 'gldas': ['ee', 'pyarrow', 'rasterio'],
+           'earthdata': ['harmony'], 'smap_l3': ['harmony', 'h5py', 'astropy', 'pyarrow'],
            'contexts': ['ee', 'rasterio', 'numpy', 'access_parser', 'osgeo.gdal'],
            'modis': ['ee', 'rasterio', 'numpy', 'osgeo.gdal'],
            'timeseries': ['ee', 'pyarrow', 'rasterio'],
@@ -111,6 +112,7 @@ def main():
         groups = list(MODULES) if args.extras == 'all' else [g for g in args.extras.split(',') if g]
         if args.action == 'run' and not args.extras:
             defaults = {'sm-benchmark-prepare': list(MODULES), 'sm-benchmark-context': ['contexts'],
+                        'sm-benchmark-smap-l3-assets': ['smap_l3'],
                         'sm-benchmark-modis': ['modis'], 'sm-benchmark-smap': ['smap'],
                         'sm-benchmark-timeseries': ['timeseries'], 'sm-benchmark-sentinel1': ['sentinel1']}
             groups = defaults.get(args.command, ['core'])

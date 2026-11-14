@@ -10,4 +10,4 @@ dependencies:
   - pyarrow>=15
   - pip
   - pip:
-      - -e .[contexts,gldas,modis,timeseries,sentinel1,smap]
+      - -e .[contexts,gldas,modis,timeseries,sentinel1,smap,smap_l3]

@@ -2,9 +2,14 @@
 
 `sm-benchmark-prepare` prepares selected sources through the existing registered
 adapters and assembles one annual ZIP. It supports GLDAS, four separate Terra/Aqua
-MODIS sources, ERA5-Land, IMERG, Sentinel-1 and SMAP L4, plus the three reviewed
+MODIS sources, ERA5-Land, IMERG, Sentinel-1, SMAP L4 and SMAP L3, plus the three reviewed
 context sources. No source algorithms, interpolation rules or temporal supports
 are changed by assembly. This is not concatenation of independently delivered ZIPs.
+
+SMAP L3 uses Earthdata/Harmony while other online sources primarily use GEE.
+Both follow the same request dates, adapter contract and final package assembly.
+Install the `smap_l3` extra and follow [Earthdata setup](smap-l3-preparation.md).
+Selecting L3 does not require a second user-facing download/packaging workflow.
 
 ## Scope and setup
 

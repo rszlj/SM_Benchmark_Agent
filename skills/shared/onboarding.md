@@ -47,3 +47,11 @@ Routine local setup follows a request to get started. It does not authorize
 unbounded downloads, account registration, acceptance of terms or changed science.
 Reuse existing authorization; do not ask again merely because a different skill
 was loaded. HWSD2's source skill handles its separate non-GEE global-cache scope.
+
+For SMAP L3, follow [Earthdata setup](../../docs/smap-l3-preparation.md#earthdata-setup).
+Earthdata Login is separate from GEE. Install the `smap_l3` extra in the selected
+environment and guide local home `.netrc` setup; never request passwords in chat.
+Use `sm-benchmark-earthdata-check` offline, or `--online` only for an authorized
+login check. A mixed request's `credential_ref` remains the GEE configuration;
+the L3 adapter does not open it. Other-source and local-only work should not
+require Earthdata credentials.

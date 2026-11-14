@@ -4,13 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sm-benchmark-agent"
-version = "0.1.0.dev0"
+version = "0.2.0.dev0"
 description = "Agent-assisted extension of the Global Soil Moisture Benchmark"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["pyproj>=3.6,<4"]
 
 [project.optional-dependencies]
+earthdata = ["harmony-py>=1.8,<2"]
+smap_l3 = ["harmony-py>=1.8,<2", "h5py>=3.12,<4", "astropy>=7,<9", "pyarrow>=15"]
 smap = ["earthengine-api>=1,<2", "pyarrow>=15", "rasterio>=1.3,<2"]
 gldas = ["earthengine-api>=1,<2", "pyarrow>=15", "rasterio>=1.3,<2"]
 contexts = ["earthengine-api>=1,<2", "rasterio>=1.3,<2", "numpy>=1.26", "access-parser>=0.0.6,<0.1"]
@@ -19,6 +21,9 @@ timeseries = ["earthengine-api>=1,<2", "pyarrow>=15", "rasterio>=1.3,<2"]
 sentinel1 = ["earthengine-api>=1,<2", "rasterio>=1.3,<2", "numpy>=1.26", "pandas>=2", "xarray>=2024", "h5netcdf>=1.3", "h5py>=3.10"]
 
 [project.scripts]
+sm-benchmark-earthdata-check = "sm_benchmark_agent.earthdata_setup:main"
+sm-benchmark-smap-l3-assets = "sm_benchmark_agent.smap_l3_remote:main"
+sm-benchmark-merge-smap = "sm_benchmark_agent.package_merge:main"
 sm-benchmark-prepare = "sm_benchmark_agent.multi_workflow:main"
 sm-benchmark-smap = "sm_benchmark_agent.smap_workflow:main"
 sm-benchmark-agent = "sm_benchmark_agent.extension_agent:main"

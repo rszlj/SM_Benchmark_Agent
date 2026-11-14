@@ -31,7 +31,7 @@ and configuration files. Python 3.11+ is a runtime requirement: if it is missing
 the agent helps you install it using a method appropriate for your computer.
 Agent software, network access and provider access remain prerequisites.
 
-The entry skill coordinates twelve separate source skills and reads only those
+The entry skill coordinates thirteen separate source skills and reads only those
 needed for your request. Setup and delivery rules are shared; users still interact
 with one agent. See [skill organization](docs/skill-layout.md) for maintenance details.
 
@@ -72,8 +72,10 @@ shared agent instructions and source-specific skills.
 
 ### Implemented
 
-- Twelve source adapters: SRTM, HWSD2, MCD12Q1, GLDAS, ERA5-Land, IMERG,
-  separate Terra/Aqua NDVI and LST, Sentinel-1, and SMAP L4 v007.
+- Thirteen source adapters: SRTM, HWSD2, MCD12Q1, GLDAS, ERA5-Land, IMERG,
+  separate Terra/Aqua NDVI and LST, Sentinel-1, SMAP L4 v007 and SMAP L3 V006.
+  L3 supplies native-cell AM/PM soil moisture and H/V brightness temperature
+  through Earthdata/Harmony. See [setup and profile](docs/smap-l3-preparation.md).
 - Unified multi-source preparation for one anchor cell and a date range within
   one year, with matching prepared contexts and absent station targets.
   Inclusive UTC start/end dates are honored; full-year requests remain supported.
@@ -82,12 +84,21 @@ shared agent instructions and source-specific skills.
   containing selected inputs, context assets, provenance and explicit source gaps.
 - Offline V1 catalogue lookup and verified local ZIP reuse. Python environment
   selection, dependency diagnosis and launch through a recorded interpreter path.
+- L3 participates in the same date-scoped multi-source request and ZIP assembly.
+  Existing benchmark ZIPs can also be extended without altering original targets
+  or other inputs. New sources require reviewed adapters, profiles, tests and
+  skill-index registration; arbitrary-product ingestion is not automatic.
 
 See [usage examples](docs/usage-examples.md),
 [unified preparation](docs/multi-source-preparation.md), and
 [Python environment handling](docs/python-environment.md).
 
 ### Verified
+
+- SMAP L3 integration: 98 regression tests, installed-wheel checks, exact-period
+  mixed-source assembly and network-blocked replay of actual SMAP/ERA5/context
+  data passed. Existing station-bearing ZIP augmentation also passed. See
+  [L3 acceptance and limits](docs/smap-l3-release-acceptance.md).
 
 - Offline source tests and V1 replay checks, plus a live GLDAS cell/year test.
 - One integrated April 2015 package at `EASE2_M09km_R0169_C1995`: all nine

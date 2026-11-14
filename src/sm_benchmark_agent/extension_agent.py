@@ -122,6 +122,8 @@ def plan_extension(request, catalogue):
             if normalized['station_targets'] == 'required' and row and int(row['station_count']) < 1:
                 reusable = False
             states = {s: catalogue.availability(anchor_id, year, s) for s in normalized['sources']}
+            if any(s['state'] in {'not processed', 'failed'} for s in states.values()):
+                reusable = False
             published = bool(row and row['build_status'] == 'complete')
             reason = ('Existing full annual package; includes unselected sources and station targets. '
                       'Source gaps are preserved.' if reusable else

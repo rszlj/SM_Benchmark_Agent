@@ -51,6 +51,13 @@ may support existing V1 reuse, but do not imply retrieval or station ingestion.
 Do not generate new scientific processing code to fill a missing adapter.
 Do not silently omit a requested source or fabricate station observations.
 
+Provider-specific authentication stays behind the selected adapter; a mixed-source
+request must not become a series of user-managed source packages. Keep exact dates
+consistent and assemble once through the unified workflow. When the user instead
+asks to add SMAP L3 to an existing station-bearing release package, follow the L3
+skill's explicit merge route, preserving targets and writing a new package rather
+than treating it as new station-free preparation.
+
 The source skills delegate to maintained tools; they do not require separate agents
 or additional installations. Shared guidance is read once per task. See
 [maintenance rules](../../docs/skill-layout.md) when changing this architecture.

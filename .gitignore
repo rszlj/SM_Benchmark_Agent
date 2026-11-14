@@ -12,6 +12,8 @@ dist/
 htmlcov/
 
 # Authentication and local configuration
+.netrc
+_netrc
 .env
 .env.*
 !.env.example

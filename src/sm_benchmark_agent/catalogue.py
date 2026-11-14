@@ -11,7 +11,7 @@ SOURCE_COLUMNS = {
     'mod13q1_ndvi': 'mod13q1_ndvi', 'myd13q1_ndvi': 'myd13q1_ndvi',
     'mod11a2_lst': 'mod11a2_lst', 'myd11a2_lst': 'myd11a2_lst',
     'sentinel1': 'sentinel1', 'era5_land': 'era5_land', 'gldas21': 'gldas21',
-    'imerg_v07': 'imerg_v07', 'smap_l4': 'smap_l4', 'ismn': None,
+    'imerg_v07': 'imerg_v07', 'smap_l4': 'smap_l4', 'smap_l3': 'smap_l3', 'ismn': None,
 }
 
 

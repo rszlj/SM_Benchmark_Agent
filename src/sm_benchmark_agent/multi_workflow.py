@@ -143,7 +143,7 @@ def execute_multi(plan, *, accepted_plan_id, adapters=None):
                                     'assembly_policy': 'Source-specific science unchanged; no temporal or spatial harmonization' }, indent=2), encoding='utf-8')
         assets.append({'path': str(path), 'destination': 'metadata/multi_extension.json', 'source_id': 'multi-extension',
                        'role': 'metadata', 'sha256': checksum(path)})
-        delivery = dict(context, requested_period=period, assets=assets, availability=availability, processing_version='sm-benchmark-agent-0.1.0.dev0')
+        delivery = dict(context, requested_period=period, assets=assets, availability=availability, processing_version='sm-benchmark-agent-0.2.0.dev0')
         path = stage / 'plan.json'
         path.write_text(json.dumps(delivery, indent=2), encoding='utf-8')
         export_gridded_archive(path, root, dry_run=False)
@@ -151,8 +151,10 @@ def execute_multi(plan, *, accepted_plan_id, adapters=None):
 
 
 def destination(source, path, year):
-    if source in {'gldas21', 'era5_land', 'imerg_v07', 'smap_l4'}:
-        if source == 'smap_l4':
+    if source in {'gldas21', 'era5_land', 'imerg_v07', 'smap_l4', 'smap_l3'}:
+        if source == 'smap_l3':
+            filename = f'smap_l3_{year}_native_cell_am_pm.parquet'
+        elif source == 'smap_l4':
             filename = 'smap_l4_3hourly.parquet'
         else:
             cadence = {'gldas21': '3hourly', 'era5_land': 'hourly', 'imerg_v07': 'half_hourly'}[source]

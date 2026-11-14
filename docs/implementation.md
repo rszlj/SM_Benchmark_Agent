@@ -28,8 +28,10 @@ The Python namespace is `sm_benchmark_agent` and does not overlap the old toolki
 ## Adapter boundary
 
 `adapters.py` defines `plan`, `prepare`, `validate`. The default registry now
-contains twelve adapters: GLDAS, SRTM/HWSD2/MCD12Q1, four separate Terra/Aqua
-NDVI/LST sources, ERA5-Land, IMERG, Sentinel-1 and SMAP L4. Sentinel-1 uses
+contains thirteen adapters: GLDAS, SRTM/HWSD2/MCD12Q1, four separate Terra/Aqua
+NDVI/LST sources, ERA5-Land, IMERG, Sentinel-1, SMAP L4 and SMAP L3. L3 uses
+Earthdata/Harmony with the unified preparation/validation/assembly interface.
+See [L3 setup and profile](smap-l3-preparation.md). Sentinel-1 uses
 `sm-benchmark-sentinel1` with bounded discovery and acquisition checkpoints;
 prepared 50 m acquisition replay passes, while live retrieval remains unverified.
 See [Sentinel-1 preparation](sentinel1-preparation.md).

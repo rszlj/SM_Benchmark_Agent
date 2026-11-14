@@ -64,6 +64,14 @@
       "extra": "smap",
       "scope": "one anchor/year; absent targets; SMAP v007 legacy GEE sampling and reviewed contexts; native-cell equivalence unverified",
       "requires_context": true
+    },
+    "smap_l3": {
+      "command": "sm-benchmark-prepare",
+      "guide": "docs/smap-l3-preparation.md",
+      "example": "configs/smap-l3-request.example.json",
+      "extra": "smap_l3",
+      "scope": "one anchor/year; exact dates; absent targets; Earthdata native-cell SM/TB with reviewed contexts; completed years only",
+      "requires_context": true
     }
   },
   "sources": {
@@ -138,6 +146,12 @@
       "profile_id": "smap-l4-v007-legacy-13km-v1",
       "workflow": "smap",
       "provider": "GEE"
+    },
+    "smap_l3": {
+      "skill": "skills/prepare-smap-l3/SKILL.md",
+      "profile_id": "smap-l3-enhanced-v006-native-am-pm-tb-v1",
+      "workflow": "smap_l3",
+      "provider": "NSIDC Earthdata / Harmony"
     }
   },
   "unimplemented": {
@@ -157,7 +171,8 @@
       "era5_land",
       "imerg_v07",
       "sentinel1",
-      "smap_l4"
+      "smap_l4",
+      "smap_l3"
     ],
     "dependency_policy": "Use extras of selected source workflows"
   }

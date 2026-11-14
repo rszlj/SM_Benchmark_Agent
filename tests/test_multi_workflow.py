@@ -13,6 +13,8 @@ from sm_benchmark_agent.modis_sources import MODISAdapter, PROFILES as MP
 from sm_benchmark_agent.timeseries_sources import TimeSeriesAdapter
 from sm_benchmark_agent.sentinel1_sources import Sentinel1Adapter
 from sm_benchmark_agent.smap_sources import SMAPL4Adapter
+from sm_benchmark_agent.smap_l3_adapter import SMAPL3Adapter
+from test_smap_l3_adapter import L3Step
 from sm_benchmark_agent.archives import verify_archive
 from sm_benchmark_agent.adapters import SourceUnit
 from sm_benchmark_agent.delivery import checksum
@@ -51,7 +53,7 @@ class MultiTests(unittest.TestCase):
                   'era5_land':TimeSeriesAdapter('era5_land',provider=ts),
                   'imerg_v07':TimeSeriesAdapter('imerg_v07',provider=ts),
                   'sentinel1':Sentinel1Adapter(provider=S1Provider()),
-                  'smap_l4':SMAPL4Adapter(provider=sm),
+                  'smap_l4':SMAPL4Adapter(provider=sm), 'smap_l3':SMAPL3Adapter(step=L3Step()),
                   **{s:MODISAdapter(s,provider=mod) for s in MP}}
         plan=plan_multi(req,adapters=adapters,**kwargs)
         with self.assertRaises(ValueError):
@@ -70,7 +72,7 @@ class MultiTests(unittest.TestCase):
         verify_archive(moved)
         with zipfile.ZipFile(moved) as z:
             names=z.namelist()
-            self.assertEqual(len([n for n in names if n.endswith('.parquet')]),4)
+            self.assertEqual(len([n for n in names if n.endswith('.parquet')]),5)
             for source,adapter in adapters.items():
                 item=next(s for s in plan['sources'] if s['unit']['source_id']==source)
                 unit=SourceUnit(**item['unit'])
@@ -134,7 +136,7 @@ class MultiTests(unittest.TestCase):
                   'era5_land':TimeSeriesAdapter('era5_land',provider=ts),
                   'imerg_v07':TimeSeriesAdapter('imerg_v07',provider=ts),
                   'sentinel1':Sentinel1Adapter(provider=PeriodS1()),
-                  'smap_l4':SMAPL4Adapter(provider=sm),
+                  'smap_l4':SMAPL4Adapter(provider=sm), 'smap_l3':SMAPL3Adapter(step=L3Step()),
                   **{s:MODISAdapter(s,provider=PeriodMODIS()) for s in MP}}
         plan=plan_multi(req,adapters=adapters,**kwargs)
         self.assertTrue(all('/period-2015-04-01_2015-04-30' in s['work_key'] for s in plan['sources']))

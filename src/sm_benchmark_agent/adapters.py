@@ -85,10 +85,12 @@ def default_registry():
     from .timeseries_sources import TimeSeriesAdapter, PROFILES as TIMESERIES_PROFILES
     from .sentinel1_sources import Sentinel1Adapter
     from .smap_sources import SMAPL4Adapter
+    from .smap_l3_adapter import SMAPL3Adapter
     registry = AdapterRegistry()
     registry.register(GLDAS21Adapter())
     registry.register(Sentinel1Adapter())
     registry.register(SMAPL4Adapter())
+    registry.register(SMAPL3Adapter())
     for source in PROFILES:
         registry.register(ContextAdapter(source))
     for source in MODIS_PROFILES:

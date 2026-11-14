@@ -18,7 +18,7 @@ guides and code is not a supported standalone distribution.
 | Source guides in `docs/` | Exact commands, technical profiles, resource limits and evidence | For the selected workflow |
 | Python adapters | Executable processing and validation | Through the documented tools |
 
-There are twelve source skills, one for each implemented adapter. Terra/Aqua NDVI
+There are thirteen source skills, one for each implemented adapter. Terra/Aqua NDVI
 and day/night LST have separate skill entry points and share the MODIS guide and
 processing helpers. SRTM/HWSD2/MCD12Q1 similarly have separate scientific guidance
 but share the context command. SMAP L4 has a separate legacy-sampling skill. The index retains ISMN as an unimplemented V1 catalogue identity, outside current migration scope;
@@ -50,7 +50,8 @@ Example routing checks:
 - ERA5 plus IMERG: two source skills and one shared time-series workflow guide.
 - Sentinel-1 plus ERA5: read both source skills, then use the unified workflow
   with matching contexts to produce one package.
-- SMAP: disclose legacy geographic sampling and unverified native-cell equivalence.
+- SMAP L4: disclose legacy geographic sampling and unverified native-cell equivalence.
+- SMAP L3: use Earthdata and the native AM/PM SM/TB profile in unified requests.
 - User-supplied station data (including private observations): report ingestion
   as unsupported in the current scope; do not assume ISMN format or permission
   to publish. Compatible V1 reuse remains separate; never fabricate observations.
